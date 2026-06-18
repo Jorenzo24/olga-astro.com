@@ -1,0 +1,32 @@
+---
+deployment:
+  tasks:
+    # NOTE: replace CPANELUSER below with the real cPanel username before the
+    # first cPanel "Git Version Control" deploy (see .claude/CLAUDE.md).
+    - export DEPLOYPATH=/home/CPANELUSER/public_html/
+    # Shared assets
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    # Root files
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp 404.html $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH
+    - /bin/cp robots.txt $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
+    # Consultation landing pages
+    - /bin/cp -R natal-chart-reading $DEPLOYPATH
+    - /bin/cp -R astrology-forecast-reading $DEPLOYPATH
+    - /bin/cp -R synastry-compatibility-reading $DEPLOYPATH
+    - /bin/cp -R relocation-astrology-reading $DEPLOYPATH
+    - /bin/cp -R career-astrology-reading $DEPLOYPATH
+    - /bin/cp -R children-astrology-reading $DEPLOYPATH
+    - /bin/cp -R medical-astrology-reading $DEPLOYPATH
+    - /bin/cp -R birth-time-rectification $DEPLOYPATH
+    - /bin/cp -R horary-astrology-reading $DEPLOYPATH
+    # Navigation pages
+    - /bin/cp -R about $DEPLOYPATH
+    - /bin/cp -R consultation $DEPLOYPATH
+    - /bin/cp -R question-answer $DEPLOYPATH
+    - /bin/cp -R articles $DEPLOYPATH
+    - /bin/cp -R contact $DEPLOYPATH

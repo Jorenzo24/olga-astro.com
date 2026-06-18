@@ -1,0 +1,11 @@
+# robots.txt — olga-astro.com
+#
+# NOTE (beta): every page currently ships <meta name="robots" content="noindex, nofollow">
+# so nothing is indexed while we develop on GitHub Pages. This file is the
+# PRODUCTION-READY version: when going live on olga-astro.com, remove the noindex
+# meta tags (see partials/head note + CLAUDE.md) and this file already allows crawl.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://olga-astro.com/sitemap.xml
