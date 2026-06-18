@@ -38,7 +38,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles (bump ?v= when editing CSS — see CLAUDE.md) -->
-  <link rel="stylesheet" href="css/style.css?v=20260618a">
+  <link rel="stylesheet" href="css/style.css?v=20260618b">
 
   <!-- JSON-LD: WebSite + Person + Services -->
   <script type="application/ld+json">
@@ -88,7 +88,7 @@
   </script>
 </head>
 
-<body class="bg-dark">
+<body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============================ HEADER ============================ -->
@@ -202,115 +202,113 @@
       </div>
     </section>
 
-    <!-- ====================== CONSULTATIONS GRID ====================== -->
+    <!-- ====================== CONSULTATIONS (READINGS) ====================== -->
     <section class="section bg-cream" id="consultations" aria-labelledby="cons-title">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow is-centered">Ways we can work together</span>
-          <h2 id="cons-title">Nine astrology readings, one personal approach</h2>
-          <p>Every consultation is calculated and interpreted for you personally. Choose the reading
-            that fits your question — or book a general session and we'll find the right focus together.</p>
+          <h2 id="cons-title">Nine readings, one personal approach</h2>
+          <p>Every consultation is calculated and interpreted for you alone, from your exact birth data —
+            and delivered online, wherever you are. Start with the natal chart, or jump to the question
+            on your mind.</p>
         </div>
 
-        <div class="card-grid">
-          <!-- 1 -->
-          <article class="card reveal">
-            <span class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>
+        <!-- Featured reading: Natal chart -->
+        <article class="featured reveal">
+          <div class="featured__media">
+            <!-- IMAGE PLACEHOLDER — swap placeholder-natal.svg for a real photo/graphic later -->
+            <span class="ph" aria-hidden="true">
+              <span class="ph__tag">Most popular</span>
+              <img src="assets/img/placeholder-natal.svg" alt="" width="400" height="400" loading="lazy">
             </span>
-            <h3><a href="natal-chart-reading/">Natal Chart Reading</a></h3>
-            <p>Your astrological blueprint — personality, innate strengths, life purpose and the
-              potential written into your birth chart.</p>
-            <a class="textlink" href="natal-chart-reading/" tabindex="-1">Learn more
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
-          </article>
-          <!-- 2 -->
-          <article class="card reveal" data-delay="1">
-            <span class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M8 14l2 2 4-4"/></svg>
+          </div>
+          <div class="featured__body">
+            <span class="featured__num">01 — Start here</span>
+            <h3>Natal Chart Reading</h3>
+            <p>Your astrological blueprint. Drawn from the exact moment you were born, a natal chart
+              reading uncovers your character, your innate strengths and challenges, your talents and
+              the deeper purpose written into your chart — the foundation every other reading builds on.</p>
+            <div class="featured__actions">
+              <a class="btn btn--primary" href="natal-chart-reading/">Explore the natal reading</a>
+              <a class="textlink" href="consultation/">See all consultations
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- The other 8 readings -->
+        <div class="readings-grid">
+          <article class="reading reveal">
+            <span class="reading__top">
+              <span class="reading__num">02</span>
+              <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M8 14l2 2 4-4"/></svg></span>
             </span>
             <h3><a href="astrology-forecast-reading/">Astrology Forecast Reading</a></h3>
-            <p>The year ahead, mapped to your chart: when to act, when to wait, and the cycles
-              shaping the next twelve months.</p>
-            <a class="textlink" href="astrology-forecast-reading/" tabindex="-1">Learn more
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
+            <p>The year ahead, mapped to your chart — when to act, when to wait, and the cycles shaping the next twelve months.</p>
+            <span class="reading__more">Learn more <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
           </article>
-          <!-- 3 -->
-          <article class="card reveal" data-delay="2">
-            <span class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20S4 14.5 4 9a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 5.5-8 11-8 11z"/></svg>
+          <article class="reading reveal" data-delay="1">
+            <span class="reading__top">
+              <span class="reading__num">03</span>
+              <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20S4 14.5 4 9a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 5.5-8 11-8 11z"/></svg></span>
             </span>
             <h3><a href="synastry-compatibility-reading/">Synastry &amp; Compatibility</a></h3>
-            <p>How two charts meet — the attraction, the harmony and the friction in a relationship,
-              with grounded advice for both partners.</p>
-            <a class="textlink" href="synastry-compatibility-reading/" tabindex="-1">Learn more
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
+            <p>How two charts meet: attraction, harmony and friction, with grounded advice for both partners.</p>
+            <span class="reading__more">Learn more <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
           </article>
-          <!-- 4 -->
-          <article class="card reveal">
-            <span class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.2 8 12 8 12s8-6.8 8-12a8 8 0 0 0-8-8z"/></svg>
+          <article class="reading reveal" data-delay="2">
+            <span class="reading__top">
+              <span class="reading__num">04</span>
+              <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.2 8 12 8 12s8-6.8 8-12a8 8 0 0 0-8-8z"/></svg></span>
             </span>
             <h3><a href="relocation-astrology-reading/">Relocation Astrology</a></h3>
-            <p>Where in the world supports you best — astrocartography for love, career, wellbeing
-              and a place that truly fits.</p>
-            <a class="textlink" href="relocation-astrology-reading/" tabindex="-1">Learn more
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
+            <p>Where in the world supports you best — astrocartography for love, career and wellbeing.</p>
+            <span class="reading__more">Learn more <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
           </article>
-          <!-- 5 -->
-          <article class="card reveal" data-delay="1">
-            <span class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          <article class="reading reveal">
+            <span class="reading__top">
+              <span class="reading__num">05</span>
+              <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
             </span>
             <h3><a href="career-astrology-reading/">Career Astrology Reading</a></h3>
-            <p>Your vocation and talents — the professional direction your chart points to, for a
-              first step or a confident change.</p>
-            <a class="textlink" href="career-astrology-reading/" tabindex="-1">Learn more
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
+            <p>Your vocation and talents — the professional direction your chart points to.</p>
+            <span class="reading__more">Learn more <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
           </article>
-          <!-- 6 -->
-          <article class="card reveal" data-delay="2">
-            <span class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="3"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>
+          <article class="reading reveal" data-delay="1">
+            <span class="reading__top">
+              <span class="reading__num">06</span>
+              <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="3"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg></span>
             </span>
             <h3><a href="children-astrology-reading/">Children's Astrology</a></h3>
-            <p>Understand your child's nature, gifts and needs — and the most loving way to support
-              how they're already wired.</p>
-            <a class="textlink" href="children-astrology-reading/" tabindex="-1">Learn more
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
+            <p>Understand your child's nature and gifts, and the most loving way to support them.</p>
+            <span class="reading__more">Learn more <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
           </article>
-          <!-- 7 -->
-          <article class="card reveal">
-            <span class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg>
+          <article class="reading reveal" data-delay="2">
+            <span class="reading__top">
+              <span class="reading__num">07</span>
+              <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg></span>
             </span>
             <h3><a href="medical-astrology-reading/">Medical Astrology</a></h3>
-            <p>Constitutional tendencies and wellbeing themes in your chart — a reflective complement
-              to (never a replacement for) medical care.</p>
-            <a class="textlink" href="medical-astrology-reading/" tabindex="-1">Learn more
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
+            <p>Constitutional tendencies and wellbeing themes — a reflective complement to medical care.</p>
+            <span class="reading__more">Learn more <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
           </article>
-          <!-- 8 -->
-          <article class="card reveal" data-delay="1">
-            <span class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <article class="reading reveal">
+            <span class="reading__top">
+              <span class="reading__num">08</span>
+              <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
             </span>
             <h3><a href="birth-time-rectification/">Birth Time Rectification</a></h3>
-            <p>Don't know your exact birth time? We reconstruct it from real events in your life so
-              your chart can be read with precision.</p>
-            <a class="textlink" href="birth-time-rectification/" tabindex="-1">Learn more
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
+            <p>Don't know your exact birth time? We reconstruct it from real life events.</p>
+            <span class="reading__more">Learn more <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
           </article>
-          <!-- 9 -->
-          <article class="card reveal" data-delay="2">
-            <span class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.8.4-.9.9-.9 1.7"/><circle cx="12" cy="16.5" r=".6" fill="currentColor"/></svg>
+          <article class="reading reveal" data-delay="1">
+            <span class="reading__top">
+              <span class="reading__num">09</span>
+              <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.8.4-.9.9-.9 1.7"/><circle cx="12" cy="16.5" r=".6" fill="currentColor"/></svg></span>
             </span>
             <h3><a href="horary-astrology-reading/">Horary Astrology</a></h3>
-            <p>One pressing question, one precise answer — a focused reading cast for the moment you
-              ask, when you need clarity now.</p>
-            <a class="textlink" href="horary-astrology-reading/" tabindex="-1">Learn more
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
+            <p>One pressing question, one precise answer — cast for the moment you ask.</p>
+            <span class="reading__more">Learn more <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
           </article>
         </div>
       </div>
@@ -601,6 +599,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260618a"></script>
+  <script src="js/main.js?v=20260618b"></script>
 </body>
 </html>

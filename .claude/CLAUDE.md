@@ -76,7 +76,15 @@ marked `STUB — full copy next pass`. Home + design system are complete.
 `css/style.css` or `js/main.js`, **bump the version query string** `?v=AAAAMMJJx`
 (date + letter, e.g. `?v=20260618a` → `20260618b`) on EVERY `<link>`/`<script>`
 that references them, across **all** pages — otherwise returning visitors get
-stale assets for up to a month. Current version stamp: **v=20260618a**.
+stale assets for up to a month. Current version stamp: **v=20260618b**.
+
+## Theming gotcha (important)
+Do NOT put `class="bg-dark"` on `<body>`. The `.bg-dark h2/h3/p/li` rules recolor
+text white for dark sections; if `body` carries `.bg-dark`, those rules cascade into
+nested light (`.bg-cream`) sections and make their text white-on-white (this broke
+the card titles + headings once). `.bg-dark` belongs only on the specific dark
+`<section>`s. The header is permanently dark-tinted so nav stays legible over both
+dark (home hero) and light (interior) page tops.
 
 ## Git
 - `main` = production. Work on feature branches; never push straight to `main` for
