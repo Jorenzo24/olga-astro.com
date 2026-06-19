@@ -658,12 +658,12 @@ body.nav-open { overflow: hidden; }
 .footer__brand .brand { margin-bottom: 1rem; }
 .footer__brand p { font-size: .92rem; max-width: 32ch; }
 /* Section titles: brighter, clearly separated from their links by a gold rule */
-.footer h4 {
+.site-footer h4 {
   color: #ffffff; font-family: var(--font-body); font-weight: 700;
   font-size: .85rem; text-transform: uppercase; letter-spacing: .18em;
   margin-bottom: 1.4rem; padding-bottom: .7rem; position: relative;
 }
-.footer h4::after { content: ""; position: absolute; left: 0; bottom: 0; width: 26px; height: 2px; background: var(--c-gold); border-radius: 2px; }
+.site-footer h4::after { content: ""; position: absolute; left: 0; bottom: 0; width: 26px; height: 2px; background: var(--c-gold); border-radius: 2px; }
 .footer__links li { margin-bottom: .7rem; }
 .footer__links li:last-child { margin-bottom: 0; }
 .footer__links a { color: var(--c-on-dark-soft); font-size: .94rem; }
