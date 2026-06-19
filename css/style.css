@@ -201,6 +201,10 @@ p  { max-width: 68ch; }
   color: var(--c-navy); box-shadow: 0 10px 26px rgba(201,162,75,.32);
 }
 .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(201,162,75,.42); color: var(--c-midnight); }
+/* Guard: inside dark sections, the generic ".bg-dark a" link colour must NOT win
+   over the primary button (gold-on-gold = unreadable). Higher specificity here. */
+.bg-dark .btn--primary { color: var(--c-navy); }
+.bg-dark .btn--primary:hover { color: var(--c-midnight); }
 .btn--ghost { background: transparent; color: var(--c-navy); border: 1.5px solid var(--c-line); }
 .btn--ghost:hover { border-color: var(--c-gold); color: var(--c-gold-deep); transform: translateY(-2px); }
 .bg-dark .btn--ghost { color: var(--c-on-dark); border-color: var(--c-line-dark); }
