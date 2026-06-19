@@ -627,16 +627,26 @@ body.nav-open { overflow: hidden; }
    14. Footer
    --------------------------------------------------------------------------- */
 .site-footer { background: linear-gradient(180deg, var(--c-midnight), #060c22); color: var(--c-on-dark-soft); padding-block: var(--space-xl) var(--space-lg); position: relative; }
-.footer__grid { display: grid; gap: var(--space-lg); }
-@media (min-width: 720px) { .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+.footer__grid { display: grid; gap: var(--space-lg) var(--space-md); }
+@media (min-width: 600px) { .footer__grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 760px) { .footer__grid { grid-template-columns: 1.5fr 1fr 1fr; } }
 @media (min-width: 980px) { .footer__grid { grid-template-columns: 1.6fr 1fr 1fr 1.2fr; } }
+.footer__brand { grid-column: 1 / -1; }
+@media (min-width: 760px) { .footer__brand { grid-column: auto; } }
 .footer__brand .brand { margin-bottom: 1rem; }
 .footer__brand p { font-size: .92rem; max-width: 32ch; }
-.footer h4 { color: var(--c-white); font-family: var(--font-body); font-size: .82rem; text-transform: uppercase; letter-spacing: .16em; margin-bottom: 1.1rem; }
-.footer__links li { margin-bottom: .6rem; }
+/* Section titles: brighter, clearly separated from their links by a gold rule */
+.footer h4 {
+  color: var(--c-gold-soft); font-family: var(--font-body); font-weight: 600;
+  font-size: .82rem; text-transform: uppercase; letter-spacing: .18em;
+  margin-bottom: 1.4rem; padding-bottom: .7rem; position: relative;
+}
+.footer h4::after { content: ""; position: absolute; left: 0; bottom: 0; width: 26px; height: 2px; background: var(--c-gold); border-radius: 2px; }
+.footer__links li { margin-bottom: .7rem; }
+.footer__links li:last-child { margin-bottom: 0; }
 .footer__links a { color: var(--c-on-dark-soft); font-size: .94rem; }
 .footer__links a:hover { color: var(--c-gold-soft); }
-.socials { display: flex; gap: .6rem; margin-top: 1.2rem; }
+.socials { display: flex; gap: .6rem; margin-top: 1.4rem; }
 .socials a {
   width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
   border: 1px solid var(--c-line-dark); color: var(--c-on-dark); transition: all var(--t);
@@ -662,3 +672,36 @@ body.nav-open { overflow: hidden; }
 .reveal[data-delay="2"] { transition-delay: .16s; }
 .reveal[data-delay="3"] { transition-delay: .24s; }
 .no-js .reveal { opacity: 1; transform: none; }
+
+/* ---------------------------------------------------------------------------
+   16. Responsive refinements
+   --------------------------------------------------------------------------- */
+/* CTA bands: vertical gap too, so wrapped buttons never touch on small screens */
+.cta-band .btn { margin: .4rem .35rem 0; }
+.qcta { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
+
+/* Tablet & below: tighten vertical rhythm and oversized display type */
+@media (max-width: 700px) {
+  :root { --space-xl: 3.5rem; --space-2xl: 4.5rem; --header-h: 66px; }
+  .hero { padding-bottom: var(--space-xl); }
+  .hero__meta { gap: 1.1rem 1.6rem; }
+  .hero__badge { left: 0; right: 0; margin-inline: auto; max-width: none; width: max-content; }
+}
+
+/* Small phones: keep everything inside the viewport */
+@media (max-width: 380px) {
+  .container { padding-inline: 1.1rem; }
+  .hero__meta b { font-size: 1.6rem; }
+  .btn { padding: .85rem 1.3rem; }
+}
+
+/* Larger phones / small tablets: 2-up reading cards already handled; ensure
+   featured stacks cleanly and its media keeps a pleasant height */
+@media (max-width: 800px) {
+  .featured__media { min-height: 230px; }
+}
+
+/* Respect users who prefer no motion: disable the drifting starfield */
+@media (prefers-reduced-motion: reduce) {
+  .starfield::after { animation: none; }
+}
