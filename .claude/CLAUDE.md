@@ -76,7 +76,7 @@ marked `STUB — full copy next pass`. Home + design system are complete.
 `css/style.css` or `js/main.js`, **bump the version query string** `?v=AAAAMMJJx`
 (date + letter, e.g. `?v=20260618a` → `20260618b`) on EVERY `<link>`/`<script>`
 that references them, across **all** pages — otherwise returning visitors get
-stale assets for up to a month. Current version stamp: **v=20260618d**.
+stale assets for up to a month. Current version stamp: **v=20260618e**.
 
 ## Theming gotcha (important)
 Do NOT put `class="bg-dark"` on `<body>`. The `.bg-dark h2/h3/p/li` rules recolor

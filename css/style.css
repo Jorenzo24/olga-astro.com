@@ -490,6 +490,24 @@ body.nav-open { overflow: hidden; }
 }
 .bg-dark .qlist li { color: var(--c-on-dark-soft); }
 
+/* Balanced 3-column question grid (home "what astrology can help with") */
+.qgrid { list-style: none; display: grid; gap: 0 2.8rem; grid-template-columns: 1fr; max-width: 1000px; margin: 2.8rem auto 0; }
+@media (min-width: 600px) { .qgrid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .qgrid { grid-template-columns: 1fr 1fr 1fr; } }
+.qgrid li {
+  position: relative; padding: 1.05rem 0 1.05rem 2.2rem;
+  border-top: 1px solid var(--c-line-dark); color: var(--c-on-dark-soft);
+  font-size: 1.02rem; line-height: 1.45; transition: color var(--t);
+}
+.qgrid li:hover { color: var(--c-white); }
+.qgrid li::before {
+  content: ""; position: absolute; left: 0; top: 1.15rem; width: 1.5rem; height: 1.5rem;
+  background: linear-gradient(135deg, var(--c-gold-soft), var(--c-gold));
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.qcta { text-align: center; margin-top: var(--space-lg); }
+
 /* ---------------------------------------------------------------------------
    9. Gift certificate band
    --------------------------------------------------------------------------- */
