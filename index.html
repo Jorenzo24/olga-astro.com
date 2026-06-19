@@ -38,7 +38,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles (bump ?v= when editing CSS, see CLAUDE.md) -->
-  <link rel="stylesheet" href="css/style.css?v=20260618g">
+  <link rel="stylesheet" href="css/style.css?v=20260618h">
 
   <!-- JSON-LD: WebSite + Person + Services -->
   <script type="application/ld+json">
@@ -388,11 +388,19 @@
             <a class="btn btn--primary" href="contact/">Order a gift certificate</a>
           </div>
           <div class="gift__art" style="position:relative;z-index:1">
-            <picture>
-              <source srcset="assets/img/olga-peonies.webp" type="image/webp">
-              <img src="assets/img/olga-peonies.jpg" width="1100" height="949" loading="lazy"
-                   alt="Olga holding a large bouquet of pink peonies">
-            </picture>
+            <div class="gift__frame">
+              <picture>
+                <source srcset="assets/img/olga-peonies.webp" type="image/webp">
+                <img src="assets/img/olga-peonies.jpg" width="1100" height="949" loading="lazy"
+                     alt="Olga holding a large bouquet of pink peonies">
+              </picture>
+              <div class="gift__badge" aria-hidden="true">
+                <div class="gc-top"><span>Olga Astro</span>
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2l2.4 6.9H22l-6 4.4 2.3 7L12 16l-6.3 4.3 2.3-7-6-4.4h7.6z"/></svg>
+                </div>
+                <span class="gc-label">Gift certificate</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -605,6 +613,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260618g"></script>
+  <script src="js/main.js?v=20260618h"></script>
 </body>
 </html>

@@ -524,7 +524,20 @@ body.nav-open { overflow: hidden; }
 .gift h2 { color: var(--c-white); }
 .gift p { color: var(--c-on-dark-soft); margin-bottom: 1.5rem; }
 .gift__art { display: grid; place-items: center; }
-.gift__art img { width: 100%; max-width: 400px; border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--c-line-dark); }
+.gift__frame { position: relative; width: 100%; max-width: 400px; }
+.gift__art img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--c-line-dark); display: block; }
+/* small gift-card visual layered over the photo (kept from the original site) */
+.gift__badge {
+  position: absolute; left: -14px; bottom: 22px; z-index: 2;
+  width: min(56%, 188px); aspect-ratio: 1.6; padding: .85rem .95rem;
+  display: flex; flex-direction: column; justify-content: space-between;
+  background: linear-gradient(135deg, var(--c-gold-soft), var(--c-gold-deep));
+  color: var(--c-midnight); border-radius: 12px; box-shadow: var(--shadow-lg);
+  transform: rotate(-5deg); transition: transform var(--t);
+}
+.gift__art:hover .gift__badge { transform: rotate(0); }
+.gift__badge .gc-top { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; }
+.gift__badge .gc-label { font-size: .6rem; text-transform: uppercase; letter-spacing: .2em; }
 
 /* About page portrait gallery */
 .about-gallery__item { margin: 0; }
@@ -646,8 +659,8 @@ body.nav-open { overflow: hidden; }
 .footer__brand p { font-size: .92rem; max-width: 32ch; }
 /* Section titles: brighter, clearly separated from their links by a gold rule */
 .footer h4 {
-  color: var(--c-gold-soft); font-family: var(--font-body); font-weight: 600;
-  font-size: .82rem; text-transform: uppercase; letter-spacing: .18em;
+  color: #ffffff; font-family: var(--font-body); font-weight: 700;
+  font-size: .85rem; text-transform: uppercase; letter-spacing: .18em;
   margin-bottom: 1.4rem; padding-bottom: .7rem; position: relative;
 }
 .footer h4::after { content: ""; position: absolute; left: 0; bottom: 0; width: 26px; height: 2px; background: var(--c-gold); border-radius: 2px; }
