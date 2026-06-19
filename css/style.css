@@ -409,8 +409,9 @@ body.nav-open { overflow: hidden; }
   overflow: hidden; box-shadow: var(--shadow);
 }
 @media (min-width: 800px) { .featured { grid-template-columns: 1.05fr 1fr; } }
-.featured__media { position: relative; min-height: 280px; }
+.featured__media { position: relative; min-height: 280px; background: var(--c-midnight); }
 .featured__media .ph { position: absolute; inset: 0; border-radius: 0; }
+.featured__media > picture, .featured__media > picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .featured__body { padding: clamp(1.8rem, 1rem + 3vw, 3rem); display: flex; flex-direction: column; }
 .featured__num { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--c-gold-deep); letter-spacing: .1em; }
 .featured__body h3 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: .4rem 0 .8rem; }
@@ -523,6 +524,14 @@ body.nav-open { overflow: hidden; }
 .gift h2 { color: var(--c-white); }
 .gift p { color: var(--c-on-dark-soft); margin-bottom: 1.5rem; }
 .gift__art { display: grid; place-items: center; }
+.gift__art img { width: 100%; max-width: 400px; border-radius: var(--radius); box-shadow: var(--shadow-lg); border: 1px solid var(--c-line-dark); }
+
+/* About page portrait gallery */
+.about-gallery__item { margin: 0; }
+.about-gallery__item img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top;
+  border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--c-line);
+}
 .gift__card {
   width: 100%; max-width: 320px; aspect-ratio: 1.6; border-radius: var(--radius);
   background: linear-gradient(135deg, var(--c-gold-soft), var(--c-gold-deep));
