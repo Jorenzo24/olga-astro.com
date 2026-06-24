@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- BETA / DEV ONLY, keeps GitHub Pages out of the index.
+       BEFORE PROD on olga-astro.com replace with index, follow (or delete). -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Онлайн-консультации и разборы астролога | Olga Astro</title>
+  <meta name="description" content="Персональные консультации астролога с Ольгой: разбор натальной карты, прогноз, совместимость, карьера и переезд. Запишитесь на онлайн-сессию.">
+  <link rel="canonical" href="https://olga-astro.com/ru/">
+  <link rel="alternate" hreflang="en" href="https://olga-astro.com/">
+  <link rel="alternate" hreflang="fr" href="https://olga-astro.com/fr/">
+  <link rel="alternate" hreflang="ru" href="https://olga-astro.com/ru/">
+  <link rel="alternate" hreflang="x-default" href="https://olga-astro.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Olga Astro">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Онлайн-консультации и разборы астролога | Olga Astro">
+  <meta property="og:description" content="Персональные консультации астролога с Ольгой: разбор натальной карты, прогноз, совместимость, карьера и переезд. Запишитесь на онлайн-сессию.">
+  <meta property="og:url" content="https://olga-astro.com/ru/">
+  <meta property="og:image" content="https://olga-astro.com/assets/img/olga-portrait.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Онлайн-консультации и разборы астролога | Olga Astro">
+  <meta name="twitter:description" content="Персональные консультации астролога с Ольгой: разбор натальной карты, прогноз, совместимость, карьера и переезд. Запишитесь на онлайн-сессию.">
+  <meta name="twitter:image" content="https://olga-astro.com/assets/img/olga-portrait.jpeg">
+
+  <meta name="theme-color" content="#0a112e">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=20260624a">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://olga-astro.com/#website",
+        "url": "https://olga-astro.com/ru/",
+        "name": "Olga Astro",
+        "description": "Personal online astrology consultations and readings with astrologer Olga.",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://olga-astro.com/#olga",
+        "name": "Olga",
+        "jobTitle": "Professional Astrologer",
+        "description": "Professional astrologer offering personal online astrology consultations: natal chart, forecast, compatibility, career, relocation and more.",
+        "url": "https://olga-astro.com/ru/ob-olge/",
+        "image": "https://olga-astro.com/assets/img/olga-portrait.jpeg",
+        "knowsAbout": ["Astrology", "Natal chart reading", "Synastry", "Astrocartography", "Horary astrology"],
+        "sameAs": [
+          "https://www.instagram.com/astrolog_olga_",
+          "https://www.facebook.com/astrolog.olgam",
+          "https://t.me/astroolga2"
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Astrology consultations",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@type": "Service", "name": "Natal Chart Reading", "url": "https://olga-astro.com/ru/natalnaya-karta/", "serviceType": "Birth chart reading", "provider": { "@id": "https://olga-astro.com/#olga" } } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "Service", "name": "Astrology Forecast Reading", "url": "https://olga-astro.com/ru/astrologicheskiy-prognoz/", "serviceType": "Astrology forecast reading", "provider": { "@id": "https://olga-astro.com/#olga" } } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "Service", "name": "Synastry & Compatibility Reading", "url": "https://olga-astro.com/ru/sinastriya-sovmestimost/", "serviceType": "Synastry reading", "provider": { "@id": "https://olga-astro.com/#olga" } } },
+          { "@type": "ListItem", "position": 4, "item": { "@type": "Service", "name": "Relocation Astrology Reading", "url": "https://olga-astro.com/ru/astrokartografiya/", "serviceType": "Relocation astrology / astrocartography", "provider": { "@id": "https://olga-astro.com/#olga" } } },
+          { "@type": "ListItem", "position": 5, "item": { "@type": "Service", "name": "Career Astrology Reading", "url": "https://olga-astro.com/ru/kariernaya-astrologiya/", "serviceType": "Career astrology reading", "provider": { "@id": "https://olga-astro.com/#olga" } } },
+          { "@type": "ListItem", "position": 6, "item": { "@type": "Service", "name": "Children's Astrology Reading", "url": "https://olga-astro.com/ru/detskaya-astrologiya/", "serviceType": "Children's astrology reading", "provider": { "@id": "https://olga-astro.com/#olga" } } },
+          { "@type": "ListItem", "position": 7, "item": { "@type": "Service", "name": "Medical Astrology Reading", "url": "https://olga-astro.com/ru/meditsinskaya-astrologiya/", "serviceType": "Medical astrology reading", "provider": { "@id": "https://olga-astro.com/#olga" } } },
+          { "@type": "ListItem", "position": 8, "item": { "@type": "Service", "name": "Birth Time Rectification", "url": "https://olga-astro.com/ru/rektifikatsiya-rozhdeniya/", "serviceType": "Birth time rectification", "provider": { "@id": "https://olga-astro.com/#olga" } } },
+          { "@type": "ListItem", "position": 9, "item": { "@type": "Service", "name": "Horary Astrology Reading", "url": "https://olga-astro.com/ru/horarnaya-astrologiya/", "serviceType": "Horary astrology reading", "provider": { "@id": "https://olga-astro.com/#olga" } } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header" id="top">
+    <div class="container">
+      <a class="brand" href="./" aria-label="Olga Astro, home">
+        <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" fill="none"><path d="M27 6a16 16 0 1 0 7 26A19 19 0 0 1 27 6z" fill="currentColor"/><path d="M28 11l1.3 3.4L33 16l-3.7 1.6L28 21l-1.3-3.4L23 16l3.7-1.6z" fill="#fff"/></svg>
+        <span class="brand__text">
+          <span class="brand__name">Olga Astro</span>
+          <span class="brand__tag">Астрологические консультации</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="./" aria-current="page">Главная</a></li>
+          <li><a class="nav__link" href="ob-olge/">Об Ольге</a></li>
+          <li class="nav__item--has-menu">
+            <a class="nav__link" href="konsultatsii/">Консультации
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <div class="dropdown" role="menu" aria-label="Виды консультаций">
+              <a class="dropdown__link" role="menuitem" href="natalnaya-karta/">Натальная карта</a><a class="dropdown__link" role="menuitem" href="astrologicheskiy-prognoz/">Астрологический прогноз</a><a class="dropdown__link" role="menuitem" href="sinastriya-sovmestimost/">Синастрия и совместимость</a><a class="dropdown__link" role="menuitem" href="astrokartografiya/">Астрокартография</a><a class="dropdown__link" role="menuitem" href="kariernaya-astrologiya/">Карьерная астрология</a><a class="dropdown__link" role="menuitem" href="detskaya-astrologiya/">Детская астрология</a><a class="dropdown__link" role="menuitem" href="meditsinskaya-astrologiya/">Медицинская астрология</a><a class="dropdown__link" role="menuitem" href="rektifikatsiya-rozhdeniya/">Ректификация времени рождения</a><a class="dropdown__link" role="menuitem" href="horarnaya-astrologiya/">Хорарная астрология</a><a class="dropdown__link dropdown__all" role="menuitem" href="konsultatsii/">Все консультации →</a>
+            </div>
+          </li>
+          <li><a class="nav__link" href="voprosy-otvety/">FAQ</a></li>
+          <li><a class="nav__link" href="stati/">Статьи</a></li>
+          <li><a class="nav__link" href="kontakty/">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--primary header-cta" href="kontakty/">Записаться на консультацию</a>
+      <div class="lang-switch" role="group" aria-label="Язык"><a href="../">EN</a><a href="../fr/">FR</a><a href="../ru/" aria-current="true">RU</a></div>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a class="mobile-nav__link" href="./">Главная</a>
+    <a class="mobile-nav__link" href="ob-olge/">Об Ольге</a>
+    <a class="mobile-nav__link" href="konsultatsii/">Консультации</a>
+    <nav class="mobile-nav__sub" aria-label="Виды консультаций">
+      <a href="natalnaya-karta/">Натальная карта</a>
+      <a href="astrologicheskiy-prognoz/">Астрологический прогноз</a>
+      <a href="sinastriya-sovmestimost/">Синастрия и совместимость</a>
+      <a href="astrokartografiya/">Астрокартография</a>
+      <a href="kariernaya-astrologiya/">Карьерная астрология</a>
+      <a href="detskaya-astrologiya/">Детская астрология</a>
+      <a href="meditsinskaya-astrologiya/">Медицинская астрология</a>
+      <a href="rektifikatsiya-rozhdeniya/">Ректификация времени рождения</a>
+      <a href="horarnaya-astrologiya/">Хорарная астрология</a>
+    </nav>
+    <a class="mobile-nav__link" href="voprosy-otvety/">FAQ</a>
+    <a class="mobile-nav__link" href="stati/">Статьи</a>
+    <a class="mobile-nav__link" href="kontakty/">Контакты</a>
+    <a class="btn btn--primary btn--block" href="kontakty/">Записаться на консультацию</a>
+    <div class="lang-switch lang-switch--mobile" role="group" aria-label="Язык"><a href="../">EN</a><a href="../fr/">FR</a><a href="../ru/" aria-current="true">RU</a></div>
+  </div>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <section class="hero bg-dark">
+      <div class="starfield" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__content reveal">
+            <span class="eyebrow">Онлайн-консультация астролога</span>
+            <h1>Персональные астрологические <span class="accent">разборы</span> и консультации</h1>
+            <p class="hero__lead">Работайте один на один с Ольгой, профессиональным астрологом, ради ясного,
+              личного астрологического разбора онлайн: ваша натальная карта, год впереди, отношения,
+              карьера или переезд. Практические рекомендации, основанные на вашей уникальной карте, а не безликий гороскоп.</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary btn--lg" href="kontakty/">Записаться на консультацию</a>
+              <a class="btn btn--ghost btn--lg" href="konsultatsii/">Посмотреть разборы</a>
+            </div>
+            <div class="hero__meta">
+              <div><b>9</b><span>Видов разбора</span></div>
+              <div><b>1:1</b><span>Личные сессии</span></div>
+              <div><b>Онлайн</b><span>По всему миру</span></div>
+            </div>
+          </div>
+
+          <div class="hero__figure reveal" data-delay="1">
+            <picture>
+              <source srcset="../assets/img/olga-portrait.webp" type="image/webp">
+              <img src="../assets/img/olga-portrait.jpeg" width="999" height="999"
+                   alt="Ольга, профессиональный астролог, улыбается в тёплом золотистом свете"
+                   fetchpriority="high">
+            </picture>
+            <div class="hero__badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2l2.4 6.9H22l-6 4.4 2.3 7L12 16l-6.3 4.3 2.3-7-6-4.4h7.6z"/></svg>
+              <span><b>Профессиональный астролог</b>Личные, конфиденциальные разборы</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONSULTATIONS (READINGS) ====================== -->
+    <section class="section bg-cream" id="consultations" aria-labelledby="cons-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow is-centered">Как мы можем работать вместе</span>
+          <h2 id="cons-title">Девять разборов, один личный подход</h2>
+          <p>Каждая консультация рассчитывается и интерпретируется лично для вас, по вашим точным данным рождения,
+            и проводится онлайн, где бы вы ни находились. Начните с натальной карты или сразу перейдите к вопросу,
+            который вас волнует.</p>
+        </div>
+
+        <!-- Featured reading: Natal chart -->
+        <article class="featured reveal">
+          <div class="featured__media">
+            <span class="ph__tag">Самый популярный</span>
+            <picture>
+              <source srcset="../assets/img/astrology-wheel.webp" type="image/webp">
+              <img src="../assets/img/astrology-wheel.jpg" width="733" height="1100" loading="lazy"
+                   alt="Колесо натальной астрологической карты в окружении нежных розовых пионов">
+            </picture>
+          </div>
+          <div class="featured__body">
+            <span class="featured__num">Начните здесь</span>
+            <h3>Разбор натальной карты</h3>
+            <p>Ваш астрологический чертёж. Построенный по точному моменту вашего рождения, разбор натальной
+              карты раскрывает ваш характер, ваши врождённые сильные стороны и трудности, ваши таланты и
+              глубинное предназначение, заложенное в вашей карте, основу, на которой строится любой другой разбор.</p>
+            <div class="featured__actions">
+              <a class="btn btn--primary" href="natalnaya-karta/">Узнать о разборе натальной карты</a>
+              <a class="textlink" href="konsultatsii/">Посмотреть все консультации
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- The other 8 readings -->
+        <div class="readings-grid">
+          <article class="reading reveal">
+            <span class="reading__num" aria-hidden="true">02</span>
+            <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M8 14l2 2 4-4"/></svg></span>
+            <h3><a href="astrologicheskiy-prognoz/">Астрологический прогноз</a></h3>
+            <p>Год впереди, наложенный на вашу карту: когда действовать, когда подождать и какие циклы определят ближайшие двенадцать месяцев.</p>
+            <span class="reading__more">Подробнее <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
+          </article>
+          <article class="reading reveal" data-delay="1">
+            <span class="reading__num" aria-hidden="true">03</span>
+            <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20S4 14.5 4 9a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 5.5-8 11-8 11z"/></svg></span>
+            <h3><a href="sinastriya-sovmestimost/">Синастрия и совместимость</a></h3>
+            <p>Как встречаются две карты: притяжение, гармония и трения, с приземлёнными советами для обоих партнёров.</p>
+            <span class="reading__more">Подробнее <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
+          </article>
+          <article class="reading reveal" data-delay="2">
+            <span class="reading__num" aria-hidden="true">04</span>
+            <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.2 8 12 8 12s8-6.8 8-12a8 8 0 0 0-8-8z"/></svg></span>
+            <h3><a href="astrokartografiya/">Астрология переезда</a></h3>
+            <p>Где в мире вам лучше всего: астрокартография для любви, карьеры и благополучия.</p>
+            <span class="reading__more">Подробнее <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
+          </article>
+          <article class="reading reveal">
+            <span class="reading__num" aria-hidden="true">05</span>
+            <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
+            <h3><a href="kariernaya-astrologiya/">Карьерная астрология</a></h3>
+            <p>Ваше призвание и таланты: профессиональное направление, на которое указывает ваша карта.</p>
+            <span class="reading__more">Подробнее <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
+          </article>
+          <article class="reading reveal" data-delay="1">
+            <span class="reading__num" aria-hidden="true">06</span>
+            <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="3"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg></span>
+            <h3><a href="detskaya-astrologiya/">Детская астрология</a></h3>
+            <p>Поймите натуру и дарования вашего ребёнка и самый бережный способ его поддержать.</p>
+            <span class="reading__more">Подробнее <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
+          </article>
+          <article class="reading reveal" data-delay="2">
+            <span class="reading__num" aria-hidden="true">07</span>
+            <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg></span>
+            <h3><a href="meditsinskaya-astrologiya/">Медицинская астрология</a></h3>
+            <p>Конституциональные склонности и темы благополучия: вдумчивое дополнение к медицинской помощи.</p>
+            <span class="reading__more">Подробнее <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
+          </article>
+          <article class="reading reveal">
+            <span class="reading__num" aria-hidden="true">08</span>
+            <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+            <h3><a href="rektifikatsiya-rozhdeniya/">Ректификация времени рождения</a></h3>
+            <p>Не знаете точное время своего рождения? Мы восстановим его по реальным жизненным событиям.</p>
+            <span class="reading__more">Подробнее <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
+          </article>
+          <article class="reading reveal" data-delay="1">
+            <span class="reading__num" aria-hidden="true">09</span>
+            <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.8.4-.9.9-.9 1.7"/><circle cx="12" cy="16.5" r=".6" fill="currentColor"/></svg></span>
+            <h3><a href="horarnaya-astrologiya/">Хорарная астрология</a></h3>
+            <p>Один насущный вопрос, один точный ответ, построенный на момент, когда вы его задаёте.</p>
+            <span class="reading__more">Подробнее <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== MEET OLGA (trust / E-E-A-T) ====================== -->
+    <section class="section" aria-labelledby="meet-title">
+      <div class="container">
+        <div class="split">
+          <div class="split__media reveal">
+            <picture>
+              <source srcset="../assets/img/olga-reading.webp" type="image/webp">
+              <img src="../assets/img/olga-reading.jpg" width="1100" height="1089" loading="lazy"
+                   alt="Ольга, профессиональный астролог, сидит с открытым блокнотом во время разбора">
+            </picture>
+          </div>
+          <div class="reveal" data-delay="1">
+            <span class="eyebrow">Ваш астролог</span>
+            <h2 id="meet-title">Знакомьтесь: Ольга</h2>
+            <p class="lead">Каждый разбор на этом сайте Ольга готовит лично, профессиональный
+              астролог, работающий с каждым клиентом один на один.</p>
+            <p>Её подход тёплый, но приземлённый: ясные, практические рекомендации, основанные на вашей уникальной
+              натальной карте, всегда конфиденциально, никогда не безликий гороскоп. Стоите ли вы перед решением,
+              в отношениях, перед переездом или просто хотите лучше понять себя, вы работаете
+              напрямую с ней, от первого сообщения до итогового разбора.</p>
+            <p style="margin-top:1.8rem">
+              <a class="btn btn--ghost" href="ob-olge/">Подробнее об Ольге</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHAT ASTROLOGY CAN HELP WITH ================= -->
+    <section class="section bg-dark" aria-labelledby="help-title">
+      <div class="starfield" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow is-centered">В чём вам может помочь астрология</span>
+          <h2 id="help-title">Реальные вопросы, на которые может ответить личный разбор</h2>
+          <p>Астрология не примет за вас решения, но личный астрологический разбор даёт вам
+            более ясную карту ваших сильных сторон, вашего тайминга и ваших возможностей, чтобы выбор, который вы делаете,
+            был более осознанным и по-настоящему вашим.</p>
+        </div>
+
+        <ul class="qgrid reveal">
+          <li>Открыть своё жизненное предназначение и призвание</li>
+          <li>Развить свои природные таланты</li>
+          <li>Выбрать подходящую профессию или карьерный шаг</li>
+          <li>Улучшить своё финансовое положение</li>
+          <li>Найти совместимого партнёра</li>
+          <li>Построить гармонию в браке и отношениях</li>
+          <li>Понять и раскрыть потенциал своего ребёнка</li>
+          <li>Получить ясность в вопросах здоровья и благополучия</li>
+          <li>Решить, стоит ли и куда переезжать</li>
+          <li>Удачно выбрать время для важного решения</li>
+          <li>Найти направление, когда в жизни нет определённости</li>
+        </ul>
+
+        <div class="qcta reveal">
+          <a class="btn btn--primary btn--lg" href="kontakty/">Записаться на разбор</a>
+          <a class="btn btn--ghost btn--lg" href="konsultatsii/">Посмотреть консультации</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== FAQ TEASER ====================== -->
+    <section class="section bg-cream" aria-labelledby="qa-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow is-centered">Вопросы и ответы</span>
+          <h2 id="qa-title">Интересно, как проходит консультация?</h2>
+          <p>Как проходят сессии, что вам понадобится (и что делать, если вы не знаете время своего рождения),
+            как передаются разборы, конфиденциальность и то, в чём астрология может и не может помочь.
+            Мы собрали самые частые вопросы в одном месте.</p>
+          <p style="margin-top:1.6rem"><a class="btn btn--ghost" href="voprosy-otvety/">Читать FAQ</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== GIFT CERTIFICATES ====================== -->
+    <section class="section" aria-labelledby="gift-title">
+      <div class="container">
+        <div class="gift reveal">
+          <div class="starfield" aria-hidden="true"></div>
+          <div style="position:relative;z-index:1">
+            <span class="eyebrow">Подарочные сертификаты</span>
+            <h2 id="gift-title">Подарите разбор, который что-то значит</h2>
+            <p>Астрологическая консультация: вдумчивый, личный подарок на день рождения, к новому этапу
+              или для того, кто стоит перед важным решением. Выберите любой разбор, и мы подготовим элегантный
+              подарочный сертификат, который получатель сможет использовать, когда будет готов.</p>
+            <a class="btn btn--primary" href="kontakty/">Заказать подарочный сертификат</a>
+          </div>
+          <div class="gift__art" style="position:relative;z-index:1">
+            <div class="gift__frame">
+              <picture>
+                <source srcset="../assets/img/olga-peonies.webp" type="image/webp">
+                <img src="../assets/img/olga-peonies.jpg" width="1100" height="949" loading="lazy"
+                     alt="Ольга держит большой букет розовых пионов">
+              </picture>
+              <div class="gift__badge" aria-hidden="true">
+                <div class="gc-top"><span>Olga Astro</span>
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2l2.4 6.9H22l-6 4.4 2.3 7L12 16l-6.3 4.3 2.3-7-6-4.4h7.6z"/></svg>
+                </div>
+                <span class="gc-label">Подарочный сертификат</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONTACT / CTA ====================== -->
+    <section class="section bg-dark cta-band" aria-labelledby="cta-title">
+      <div class="starfield" aria-hidden="true"></div>
+      <div class="container reveal">
+        <span class="eyebrow is-centered">Готовы, когда будете готовы вы</span>
+        <h2 id="cta-title">Запишитесь на онлайн-консультацию астролога</h2>
+        <p>Расскажите Ольге немного о том, что вас волнует, и какой разбор вам ближе.
+          Сессии личные, конфиденциальные и проводятся онлайн, где бы вы ни находились.</p>
+        <a class="btn btn--primary btn--lg" href="kontakty/">Записаться на консультацию</a>
+        <a class="btn btn--ghost btn--lg" href="mailto:hello@olga-astro.com">Написать Ольге</a>
+      </div>
+    </section>
+
+    <!-- ============ ACCORDION, SEO LONG-FORM (in HTML, folded) ============ -->
+    <section class="section bg-cream" aria-labelledby="learn-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow is-centered">Узнать больше</span>
+          <h2 id="learn-title">Подробнее об астрологических консультациях</h2>
+          <p>Подробный взгляд на каждый вид разбора и на то, как проходит онлайн-консультация астролога.</p>
+        </div>
+
+        <div class="accordion reveal">
+          <!-- Item A -->
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="acc-1" id="acc-1-t">
+                Что такое онлайн-консультация астролога?
+                <span class="acc-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="acc-1" role="region" aria-labelledby="acc-1-t">
+              <div class="accordion__panel-inner">
+                <p>Онлайн-консультация астролога: это личная сессия один на один, на которой
+                  профессиональный астролог интерпретирует вашу уникальную натальную карту, чтобы ответить на ваши настоящие
+                  вопросы. В отличие от безликого ежедневного гороскопа, написанного для миллионов людей, личный
+                  астрологический разбор рассчитывается по вашим точным дате, времени и месту рождения, поэтому
+                  рекомендации действительно о вас. Сессии проходят онлайн, а значит вы можете записаться на
+                  консультацию астролога из любой точки мира.</p>
+                <p>Большинство людей приходят с чем-то конкретным: карьерное решение, отношения,
+                  переезд за границу или просто желание яснее понять себя. Другие предпочитают
+                  общий астрологический разбор онлайн, охватывающий всю карту. В любом случае цель
+                  одна: практическое, приземлённое понимание, которое вы действительно сможете применить.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item B -->
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="acc-2" id="acc-2-t">
+                Разборы натальной карты и прогноза
+                <span class="acc-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="acc-2" role="region" aria-labelledby="acc-2-t">
+              <div class="accordion__panel-inner">
+                <h4>Понять, кто вы есть</h4>
+                <p>Разбор натальной карты (также называемый разбором карты рождения): основа персональной
+                  астрологии. Он рассматривает положение Солнца, Луны и планет в момент вашего
+                  рождения, чтобы описать ваш характер, ваши природные таланты, ваши трудности и ваше глубинное
+                  жизненное предназначение. Это идеальная первая консультация, если у вас никогда не было личного
+                  астрологического разбора.</p>
+                <h4>Карта вашего года впереди</h4>
+                <p>Астрологический прогноз обращается к таймингу. Отслеживая текущее движение
+                  планет относительно вашей натальной карты, прогноз выделяет темы, возможности
+                  и нагрузки года впереди, чтобы вы могли планировать старты, перемены и важные решения
+                  вместе с циклами, а не вопреки им.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item C -->
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="acc-3" id="acc-3-t">
+                Отношения, переезд и карьера
+                <span class="acc-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="acc-3" role="region" aria-labelledby="acc-3-t">
+              <div class="accordion__panel-inner">
+                <h4>Понять отношения</h4>
+                <p>Разбор синастрии, также известный как разбор совместимости, сравнивает две натальные карты,
+                  чтобы показать, как взаимодействуют два человека: где есть естественное притяжение и лёгкость, а где
+                  нужны усилия и понимание. Он ценен для пар, а также для деловых
+                  партнёров, родителей и детей или любых важных отношений.</p>
+                <h4>Найти место, которое вам подходит</h4>
+                <p>Астрология переезда, иногда называемая астрокартографией, исследует, как
+                  разные места на карте активируют разные части вашей карты. Если вы обдумываете
+                  переезд или эмиграцию, она может показать, где вы найдёте лучшую опору для любви, карьеры,
+                  творчества или душевного покоя.</p>
+                <h4>Найти своё призвание</h4>
+                <p>Карьерная астрология сосредоточена на призвании: ваши таланты, ваш идеальный стиль работы
+                  и профессиональные направления, которым благоволит ваша карта. Она особенно полезна студентам,
+                  выбирающим путь, и всем, кто задумывается о смене карьеры.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item D -->
+          <div class="accordion__item">
+            <h3>
+              <button class="accordion__trigger" type="button" aria-expanded="false" aria-controls="acc-4" id="acc-4-t">
+                Специализированные разборы и как записаться
+                <span class="acc-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="acc-4" role="region" aria-labelledby="acc-4-t">
+              <div class="accordion__panel-inner">
+                <p>Помимо основных сессий, Ольга предлагает несколько специализированных разборов.
+                  <strong>Детская астрология</strong> помогает родителям понять натуру и дарования
+                  ребёнка. <strong>Медицинская астрология</strong> размышляет о конституциональных
+                  склонностях и темах благополучия в карте (всегда вместе с профессиональной медицинской
+                  помощью, а не вместо неё). <strong>Ректификация времени рождения</strong> восстанавливает
+                  неизвестное время рождения по реальным жизненным событиям, а <strong>хорарная астрология</strong>
+                  отвечает на один конкретный, насущный вопрос по карте, построенной на момент, когда вы его задаёте.</p>
+                <p>Чтобы записаться на консультацию астролога, просто выберите разбор, подходящий вашему вопросу, и
+                  свяжитесь с нами через страницу контактов. Вы поделитесь данными своего рождения, мы согласуем
+                  время, и ваш личный разбор будет подготовлен и передан онлайн. Если вы не уверены,
+                  какой разбор вам нужен, просто опишите свою ситуацию, и Ольга порекомендует лучшую
+                  отправную точку, ведь как профессиональный астролог она работает там, где находитесь вы.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="./" aria-label="Olga Astro, home">
+            <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" fill="none"><path d="M27 6a16 16 0 1 0 7 26A19 19 0 0 1 27 6z" fill="currentColor"/><path d="M28 11l1.3 3.4L33 16l-3.7 1.6L28 21l-1.3-3.4L23 16l3.7-1.6z" fill="#fff"/></svg>
+            <span class="brand__text">
+              <span class="brand__name">Olga Astro</span>
+              <span class="brand__tag">Астрологические консультации</span>
+            </span>
+          </a>
+          <p>Личные онлайн-консультации и разборы по астрологии с Ольгой, профессиональным астрологом.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/astrolog_olga_" aria-label="Instagram" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4a3.8 3.8 0 0 1-1.4-.9 3.8 3.8 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1C2.6 9.9 2.6 10.3 2.6 12s0 2.1.1 3.3c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-3.3s0-2.1-.1-3.3c-.1-1.1-.2-1.7-.4-2.1a3.5 3.5 0 0 0-.8-1.3 3.5 3.5 0 0 0-1.3-.8c-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zm6.3-8.2a1.1 1.1 0 1 1-2.3 0 1.1 1.1 0 0 1 2.3 0z"/></svg></a>
+            <a href="https://www.facebook.com/astrolog.olgam" aria-label="Facebook" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.6V3.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H7.8V13h2.7v8h3z"/></svg></a>
+            <a href="https://t.me/astroolga2" aria-label="Telegram" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.6 20c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.9l-4.8-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Консультации</h4>
+          <ul class="footer__links"><li><a href="natalnaya-karta/">Натальная карта</a></li><li><a href="astrologicheskiy-prognoz/">Астрологический прогноз</a></li><li><a href="sinastriya-sovmestimost/">Синастрия и совместимость</a></li><li><a href="astrokartografiya/">Астрокартография</a></li><li><a href="kariernaya-astrologiya/">Карьерная астрология</a></li><li><a href="konsultatsii/">Все консультации →</a></li></ul>
+        </div>
+
+        <div>
+          <h4>Разделы</h4>
+          <ul class="footer__links"><li><a href="ob-olge/">Об Ольге</a></li><li><a href="voprosy-otvety/">FAQ</a></li><li><a href="stati/">Статьи</a></li><li><a href="kontakty/">Контакты</a></li><li><a href="detskaya-astrologiya/">Детская астрология</a></li><li><a href="horarnaya-astrologiya/">Хорарная астрология</a></li></ul>
+        </div>
+
+        <div>
+          <h4>Подарить консультацию</h4>
+          <div class="footer__gift">
+            <b>Подарочные сертификаты</b>
+            <p style="margin-top:.4rem;font-size:.9rem">Астрологическая консультация: значимый личный подарок к любому случаю.</p>
+            <p style="margin-top:.8rem"><a class="textlink" href="kontakty/">Заказать сертификат
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="14" height="14"><path d="M5 12h12l-5-5 1.4-1.4L21 12l-7.6 6.4L12 17l5-5H5z"/></svg></a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span id="year">2026</span> Olga Astro. Все права защищены.</p>
+        <nav class="footer__legal" aria-label="Правовое">
+          <a href="voprosy-otvety/">FAQ</a>
+          <a href="kontakty/">Контакты</a>
+          <a href="ob-olge/">Об Ольге</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=20260624a"></script>
+</body>
+</html>

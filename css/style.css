@@ -727,3 +727,20 @@ body.nav-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .starfield::after { animation: none; }
 }
+
+/* ---------------------------------------------------------------------------
+   17. Language switcher (i18n: EN / FR / RU)
+   --------------------------------------------------------------------------- */
+.lang-switch { display: none; align-items: center; gap: .1rem; margin-left: .3rem; }
+@media (min-width: 1000px) { .lang-switch { display: inline-flex; } }
+.lang-switch a {
+  padding: .3rem .5rem; border-radius: 999px;
+  font-size: .78rem; font-weight: 600; letter-spacing: .06em; color: var(--c-on-dark-soft);
+}
+.lang-switch a:hover { color: #fff; background: rgba(255, 255, 255, .08); }
+.lang-switch a[aria-current="true"] { color: var(--c-navy); background: var(--c-gold-soft); }
+/* In the mobile drawer the switcher is always visible */
+.lang-switch--mobile { display: flex; gap: .5rem; margin-top: 1.6rem; }
+@media (min-width: 1000px) { .lang-switch--mobile { display: none; } }
+.lang-switch--mobile a { border: 1px solid var(--c-line-dark); color: var(--c-on-dark); }
+.lang-switch--mobile a[aria-current="true"] { color: var(--c-navy); background: var(--c-gold-soft); border-color: var(--c-gold-soft); }

@@ -53,9 +53,25 @@ online astrology **consultations** (not mass-market horoscopes). Built EN-first
 - Per page: unique `<title>`, meta description, `<link rel="canonical">`,
   OG + Twitter tags, a single `<h1>`.
 - JSON-LD on home: `WebSite` + `Person` (Olga) + `Service` list (9 consultations).
-  FAQPage schema planned for `/question-answer/`.
-- `lang="en"` everywhere. No RU pages yet → no hreflang (avoid broken hreflang).
-- `robots.txt` allows all (production-ready); `sitemap.xml` lists every page.
+  FAQPage schema is live on `/natal-chart-reading/` (mirror it on other landings).
+- `robots.txt` allows all (production-ready); `sitemap.xml` lists every page in
+  all 3 languages with `xhtml:link` hreflang alternates.
+
+## Internationalisation (EN / FR / RU)
+The site is trilingual. **EN at the root**, **FR under `/fr/`**, **RU under `/ru/`**,
+with **localised slugs** (e.g. `natal-chart-reading/` ↔ `/fr/etude-de-theme-natal/`
+↔ `/ru/natalnaya-karta/`). Every page carries reciprocal `hreflang` alternates
+(`en`/`fr`/`ru` + `x-default`→EN), the right `<html lang>` and `og:locale`, and a
+header/mobile **language switcher** (`.lang-switch`).
+- Asset paths stay **relative** and depth-aware: EN interior = `../`, FR/RU home =
+  `../`, FR/RU interior = `../../`.
+- **Don't hand-maintain the 45 pages.** The shells (header/footer/switcher/hreflang/
+  paths) are generated deterministically; translation is done by a workflow that
+  writes content fragments, then an assembler stitches them. See
+  `olga-i18n-translate` workflow + `scratchpad/build_i18n.py` (slug map + labels live
+  there). RU copy + slugs are AI drafts pending the client's review.
+- Known TODO: JSON-LD **text** on FR/RU pages is still EN (URLs are localised);
+  localise the schema strings in a later pass.
 
 ### Landing pages (folder → primary keyword)
 - `natal-chart-reading/` → birth/natal chart reading
@@ -76,7 +92,7 @@ marked `STUB — full copy next pass`. Home + design system are complete.
 `css/style.css` or `js/main.js`, **bump the version query string** `?v=AAAAMMJJx`
 (date + letter, e.g. `?v=20260618a` → `20260618b`) on EVERY `<link>`/`<script>`
 that references them, across **all** pages — otherwise returning visitors get
-stale assets for up to a month. Current version stamp: **v=20260618i**.
+stale assets for up to a month. Current version stamp: **v=20260624a**.
 
 ## Theming gotcha (important)
 Do NOT put `class="bg-dark"` on `<body>`. The `.bg-dark h2/h3/p/li` rules recolor
