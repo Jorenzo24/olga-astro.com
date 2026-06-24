@@ -426,6 +426,7 @@ body.nav-open { overflow: hidden; }
   position: relative; display: flex; flex-direction: column; height: 100%;
   background: var(--c-white); border: 1px solid var(--c-line); border-radius: var(--radius);
   padding: 1.7rem 1.5rem 1.55rem; box-shadow: var(--shadow-sm); overflow: hidden;
+  isolation: isolate; /* own stacking context so the watermark can sit behind content */
   transition: transform var(--t), box-shadow var(--t), border-color var(--t);
 }
 /* hover accent bar */
@@ -440,7 +441,7 @@ body.nav-open { overflow: hidden; }
 
 /* big faint watermark number, top-right */
 .reading__num {
-  position: absolute; top: .35rem; right: .9rem; z-index: 0;
+  position: absolute; top: .35rem; right: .9rem; z-index: -1;
   font-family: var(--font-display); font-size: 4.2rem; font-weight: 600; line-height: 1;
   color: var(--c-gold); opacity: .14; pointer-events: none; transition: opacity var(--t);
 }
@@ -453,8 +454,10 @@ body.nav-open { overflow: hidden; }
   color: var(--c-gold-deep); margin-bottom: 1.15rem;
 }
 .reading__icon svg { width: 23px; height: 23px; }
-.reading h3 { position: relative; z-index: 1; font-size: 1.22rem; margin-bottom: .5rem; color: var(--c-navy); }
+.reading h3 { font-size: 1.22rem; margin-bottom: .5rem; color: var(--c-navy); }
 .reading h3 a { color: inherit; }
+/* Stretched link: containing block is .reading (h3 is no longer positioned),
+   so the whole card is clickable, including the "Learn more" row. */
 .reading h3 a::after { content: ""; position: absolute; inset: 0; z-index: 2; }
 .reading p {
   position: relative; z-index: 1; font-size: .93rem; color: var(--c-ink-soft); margin-bottom: 1.3rem; flex: 1;
