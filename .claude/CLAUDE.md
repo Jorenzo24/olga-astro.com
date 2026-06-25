@@ -85,8 +85,9 @@ header/mobile **language switcher** (`.lang-switch`).
 - **Flow to add/edit a localised page:** edit the EN page (or its hero image), update
   the matching `scratchpad/i18n/<lang>__<key>.main.html` + `.meta.json` fragments
   (or re-run the transcreation workflow for that page), then re-run `build_i18n.py`.
-- Known TODO: JSON-LD **text** on FR/RU pages is still EN (URLs are localised);
-  localise the schema strings in a later pass.
+- Known TODO: JSON-LD **text** on the FR/RU **home + natal + forecast** pages is
+  still EN (URLs are localised); localise those schema strings in a later pass. The
+  other 7 FR/RU landings already have localised Service/FAQ/Breadcrumb schema text.
 
 ### Landing pages (folder → primary keyword)
 - `natal-chart-reading/` → birth/natal chart reading
@@ -99,9 +100,9 @@ header/mobile **language switcher** (`.lang-switch`).
 - `birth-time-rectification/` → birth time rectification
 - `horary-astrology-reading/` → horary astrology reading
 
-**Complete** (full EN + transcreated FR/RU): **home**, **natal-chart-reading**,
-**astrology-forecast-reading**. The other **7 landings are still STUBS** (slug +
-meta + breadcrumb + H1 + intro + CTA).
+**Complete** (full EN + transcreated FR/RU): **all 9 landings** plus home. Each new
+landing has its own thematic hero (`<key>-hero.*`) and cosmos band (`<key>-cosmos.*`)
+in `assets/img/` (Unsplash/Pexels, free licence). No STUBS remain.
 
 **To build a landing:** write the full EN page mirroring the natal/forecast template
 (hero, what-it-is SEO body, 6 benefit cards, emotional cosmos band, 4-step process,
