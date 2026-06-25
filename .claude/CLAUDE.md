@@ -78,16 +78,23 @@ with **localised slugs** (e.g. `natal-chart-reading/` ↔ `/fr/etude-de-theme-na
 header/mobile **language switcher** (`.lang-switch`).
 - Asset paths stay **relative** and depth-aware: EN interior = `../`, FR/RU home =
   `../`, FR/RU interior = `../../`.
-- **Don't hand-maintain the 45 pages.** The shells (header/footer/switcher/hreflang/
-  paths) are generated deterministically; the LANGUAGE is produced by a 2-pass
-  **transcreation** workflow (native copywriter + native editor, with a per-language
-  astrology glossary that bans English calques — *not* literal translation) that
-  writes content fragments. An assembler (`scratchpad/build_i18n.py`: slug map +
-  FR/RU labels + path logic) then stitches them into the localised shells. FR reads
-  native; RU is a strong AI draft pending Olga's review.
-- **Flow to add/edit a localised page:** edit the EN page (or its hero image), update
-  the matching `scratchpad/i18n/<lang>__<key>.main.html` + `.meta.json` fragments
-  (or re-run the transcreation workflow for that page), then re-run `build_i18n.py`.
+- The shell of every one of the 45 pages (header/footer/switcher/hreflang/breadcrumb/
+  depth-aware paths) **already exists and is correct in the page itself.** Editing is
+  surgical: change only the `<head>` meta/JSON-LD and the body, never the shell.
+- ⚠️ The old assembler `scratchpad/build_i18n.py` + `scratchpad/i18n/*` fragments were
+  **transient scratchpad artifacts and are GONE** (scratchpad is wiped between
+  sessions; they were never committed). Do not look for them. There is no build step.
+- **Flow to add/edit a localised page (current, no tooling):**
+  1. Edit the EN page directly.
+  2. For each of FR/RU, open the matching localised file (its shell is already wired)
+     and replace the body by **transcreating** the EN body, mirroring a *completed*
+     same-language page for conventions (e.g. `fr/etude-de-theme-natal/`,
+     `ru/natalnaya-karta/`): native copy, banned English calques, depth-aware paths
+     (FR/RU interior = `../../`), localised sibling slugs, and localise the Service +
+     FAQPage + Breadcrumb JSON-LD strings to match the visible copy.
+  Parallel subagents (one per page/lang) work well here; keep the FAQ JSON-LD text
+  byte-identical to the visible FAQ. FR reads native; RU is a strong AI draft pending
+  Olga's review (the 7 newest RU landings had a native-editor polish pass).
 - Known TODO: JSON-LD **text** on the FR/RU **home + natal + forecast** pages is
   still EN (URLs are localised); localise those schema strings in a later pass. The
   other 7 FR/RU landings already have localised Service/FAQ/Breadcrumb schema text.
