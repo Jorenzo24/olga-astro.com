@@ -35,8 +35,11 @@ online astrology **consultations** (not mass-market horoscopes). Trilingual
   to avoid CLS, descriptive natural `alt`. **Never hotlink** the old WordPress —
   assets are downloaded into `assets/img/`.
 - Icons: inline SVG.
-- **No em dashes** (—) or `&mdash;` anywhere in copy (universal owner rule) — use
-  commas/colons. Grep `—`/`&mdash;` before every commit.
+- **No em dashes** (—) or `&mdash;` anywhere in **EN/FR** copy (owner rule): use
+  commas/colons. **Exception: Russian.** On RU pages the dash тире (—) IS allowed and
+  expected where grammar needs it (predicate dash in `X — это Y`, appositions): a bare
+  comma there reads as an error to natives. So grep `—`/`&mdash;` before commit on EN/FR
+  only; RU is exempt.
 - **Big text blocks** are justified: `text-align:justify;-webkit-hyphens:auto;hyphens:auto`.
 - **Hero action buttons** live in a flex container
   (`display:flex;flex-wrap:wrap;gap:.9rem`), never a bare `<p>` — inline flow makes
