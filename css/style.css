@@ -747,3 +747,49 @@ body.nav-open { overflow: hidden; }
 @media (min-width: 1000px) { .lang-switch--mobile { display: none; } }
 .lang-switch--mobile a { border: 1px solid var(--c-line-dark); color: var(--c-on-dark); }
 .lang-switch--mobile a[aria-current="true"] { color: var(--c-navy); background: var(--c-gold-soft); border-color: var(--c-gold-soft); }
+
+/* ---------------------------------------------------------------------------
+   18. Facts band (consultation duration / price)
+   Used at the end of the client-copy block on each consultation landing.
+   --------------------------------------------------------------------------- */
+.facts {
+  display: grid; gap: 1px; grid-template-columns: 1fr;
+  max-width: 760px; margin: var(--space-md) auto 0;
+  background: var(--c-line);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+@media (min-width: 560px) {
+  .facts { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+}
+.facts__item { background: var(--c-cream-2); padding: 1.7rem 1.3rem; text-align: center; }
+.facts__label {
+  display: block;
+  font-size: var(--fs-eyebrow); font-weight: 600;
+  text-transform: uppercase; letter-spacing: .2em; color: var(--c-gold-deep);
+}
+.facts__value {
+  display: block; margin-top: .55rem;
+  font-family: var(--font-display); font-weight: 600; line-height: 1.15;
+  font-size: clamp(1.55rem, 1.2rem + 1.3vw, 2.05rem);
+  color: var(--c-navy);
+}
+.bg-cream .facts__item { background: var(--c-white); }
+.bg-dark .facts { background: var(--c-line-dark); border-color: var(--c-line-dark); }
+.bg-dark .facts__item { background: rgba(255, 255, 255, .045); }
+.bg-dark .facts__label { color: var(--c-gold-soft); }
+.bg-dark .facts__value { color: var(--c-white); }
+
+/* ---------------------------------------------------------------------------
+   19. Note (a short caveat / aside inside the client copy)
+   --------------------------------------------------------------------------- */
+.note {
+  max-width: var(--maxw-text); margin: var(--space-md) auto 0;
+  border-left: 3px solid var(--c-gold);
+  padding: .15rem 0 .15rem 1.4rem;
+  color: var(--c-ink-soft);
+}
+.note p { color: inherit; }
+.bg-dark .note { border-left-color: var(--c-gold-soft); }
+.bg-dark .note, .bg-dark .note p { color: var(--c-on-dark-soft); }

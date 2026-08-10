@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=20260624b">
+  <link rel="stylesheet" href="../css/style.css?v=20260810a">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://olga-astro.com/"},{"@type":"ListItem","position":2,"name":"Contact"}]}
   </script>
@@ -72,7 +72,7 @@
               <a class="dropdown__link" role="menuitem" href="../children-astrology-reading/">Children's Astrology</a>
               <a class="dropdown__link" role="menuitem" href="../medical-astrology-reading/">Medical Astrology</a>
               <a class="dropdown__link" role="menuitem" href="../birth-time-rectification/">Birth Time Rectification</a>
-              <a class="dropdown__link" role="menuitem" href="../horary-astrology-reading/">Horary Astrology</a>
+              <a class="dropdown__link" role="menuitem" href="../horary-astrology-reading/">Electional &amp; Horary Astrology</a>
               <a class="dropdown__link dropdown__all" role="menuitem" href="../consultation/">View all consultations →</a>
             </div>
           </li>
@@ -104,7 +104,7 @@
       <a href="../children-astrology-reading/">Children's Astrology</a>
       <a href="../medical-astrology-reading/">Medical Astrology</a>
       <a href="../birth-time-rectification/">Birth Time Rectification</a>
-      <a href="../horary-astrology-reading/">Horary Astrology</a>
+      <a href="../horary-astrology-reading/">Electional &amp; Horary Astrology</a>
     </nav>
     <a class="mobile-nav__link" href="../faq/">FAQ</a>
     <a class="mobile-nav__link" href="../articles/">Articles</a>
@@ -120,15 +120,62 @@
       <li><span aria-current="page">Contact</span></li>
     </ol>
   </nav>
+  <!-- ====================== HERO (client copy) ====================== -->
   <section class="page-hero section--tight">
+    <div class="container">
+      <div class="reveal" style="max-width:840px">
+        <span class="eyebrow">Contact</span>
+        <h1>Book a Consultation</h1>
+        <p class="lead">To book a consultation, fill in the form below or reach me on any of the
+          channels listed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== HOW TO BOOK (client copy) ====================== -->
+  <section class="section bg-cream" id="how-to-book" aria-labelledby="book-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow is-centered">Four simple steps</span>
+        <h2 id="book-title">How to book</h2>
+      </div>
+
+      <div class="readings-grid">
+        <article class="reading reveal">
+          <span class="reading__num" aria-hidden="true">01</span>
+          <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12v18H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
+          <h3>Fill in the form</h3>
+          <p>Fill in the form with your name, phone and email.</p>
+        </article>
+        <article class="reading reveal" data-delay="1">
+          <span class="reading__num" aria-hidden="true">02</span>
+          <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></span>
+          <h3>I get in touch</h3>
+          <p>I get in touch to discuss the details.</p>
+        </article>
+        <article class="reading reveal" data-delay="2">
+          <span class="reading__num" aria-hidden="true">03</span>
+          <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></span>
+          <h3>We pick a date and time</h3>
+          <p>We agree a date and time that suit you.</p>
+        </article>
+        <article class="reading reveal" data-delay="3">
+          <span class="reading__num" aria-hidden="true">04</span>
+          <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18v12H3z"/><path d="M3 10h18M7 15h4"/></svg></span>
+          <h3>Questionnaire and payment</h3>
+          <p>You receive the intake questionnaire and the payment link.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- CLIENT COPY ends here. Below: contact channels and the booking form. -->
+
+  <!-- ====================== CHANNELS + FORM ====================== -->
+  <section class="section" aria-labelledby="channels-title">
     <div class="container">
       <div class="split">
         <div>
-          <span class="eyebrow">Contact</span>
-          <h1>Book a Consultation</h1>
-          <p class="lead">Tell Olga a little about what's on your mind and which reading you're drawn to.
-            Share your birth details (date, time if known, and place) and she'll be in touch to arrange
-            your personal, confidential session.</p>
+          <h2 id="channels-title">Reach me directly</h2>
           <p>Prefer email or messaging? Reach out any way that suits you:</p>
           <ul class="footer__links" style="margin-top:1rem">
             <li><a href="mailto:hello@olga-astro.com">hello@olga-astro.com</a></li>
@@ -151,7 +198,8 @@
           <span class="stub-note">Form connects via Formspree placeholder: swap in the real endpoint before launch.</span>
         </div>
         <div>
-          <form class="form" action="https://formspree.io/f/your-form-id" method="POST">
+          <h2 id="form-title">Booking form</h2>
+          <form class="form" action="https://formspree.io/f/your-form-id" method="POST" aria-labelledby="form-title">
             <div class="form__row">
               <div class="field">
                 <label for="name">First name</label>
@@ -176,15 +224,15 @@
               <label for="reading">Which reading?</label>
               <input id="reading" name="reading" type="text" list="readings" placeholder="e.g. Natal chart reading">
               <datalist id="readings">
-                <option value="Natal Chart Reading"></option>
-                <option value="Astrology Forecast Reading"></option>
-                <option value="Synastry &amp; Compatibility Reading"></option>
-                <option value="Relocation Astrology Reading"></option>
-                <option value="Career Astrology Reading"></option>
-                <option value="Children's Astrology Reading"></option>
-                <option value="Medical Astrology Reading"></option>
-                <option value="Birth Time Rectification"></option>
-                <option value="Horary Astrology Reading"></option>
+                <option value="Natal chart reading"></option>
+                <option value="Astrology forecast"></option>
+                <option value="Synastry, compatibility reading"></option>
+                <option value="Relocation, relocation astrology"></option>
+                <option value="Career direction"></option>
+                <option value="Children's chart reading"></option>
+                <option value="Health chart reading"></option>
+                <option value="Birth time rectification"></option>
+                <option value="Electional astrology, choosing a date"></option>
                 <option value="Gift certificate"></option>
                 <option value="Not sure yet"></option>
               </datalist>
@@ -253,7 +301,7 @@
             <li><a href="../articles/">Articles</a></li>
             <li><a href="../contact/">Contact</a></li>
             <li><a href="../children-astrology-reading/">Children's Astrology</a></li>
-            <li><a href="../horary-astrology-reading/">Horary Astrology</a></li>
+            <li><a href="../horary-astrology-reading/">Electional &amp; Horary Astrology</a></li>
           </ul>
         </div>
 
@@ -280,6 +328,6 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=20260624b"></script>
+  <script src="../js/main.js?v=20260810a"></script>
 </body>
 </html>

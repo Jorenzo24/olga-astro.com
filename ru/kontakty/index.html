@@ -34,9 +34,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/style.css?v=20260624b">
+  <link rel="stylesheet" href="../../css/style.css?v=20260810a">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://olga-astro.com/ru/"},{"@type":"ListItem","position":2,"name":"Contact"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://olga-astro.com/ru/"},{"@type":"ListItem","position":2,"name":"Контакты"}]}
   </script>
 </head>
 <body>
@@ -61,7 +61,7 @@
               <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
             </a>
             <div class="dropdown" role="menu" aria-label="Виды консультаций">
-              <a class="dropdown__link" role="menuitem" href="../natalnaya-karta/">Натальная карта</a><a class="dropdown__link" role="menuitem" href="../astrologicheskiy-prognoz/">Астрологический прогноз</a><a class="dropdown__link" role="menuitem" href="../sinastriya-sovmestimost/">Синастрия и совместимость</a><a class="dropdown__link" role="menuitem" href="../astrokartografiya/">Астрокартография</a><a class="dropdown__link" role="menuitem" href="../kariernaya-astrologiya/">Карьерная астрология</a><a class="dropdown__link" role="menuitem" href="../detskaya-astrologiya/">Детская астрология</a><a class="dropdown__link" role="menuitem" href="../meditsinskaya-astrologiya/">Медицинская астрология</a><a class="dropdown__link" role="menuitem" href="../rektifikatsiya-rozhdeniya/">Ректификация времени рождения</a><a class="dropdown__link" role="menuitem" href="../horarnaya-astrologiya/">Хорарная астрология</a><a class="dropdown__link dropdown__all" role="menuitem" href="../konsultatsii/">Все консультации →</a>
+              <a class="dropdown__link" role="menuitem" href="../natalnaya-karta/">Натальная карта</a><a class="dropdown__link" role="menuitem" href="../astrologicheskiy-prognoz/">Астрологический прогноз</a><a class="dropdown__link" role="menuitem" href="../sinastriya-sovmestimost/">Синастрия и совместимость</a><a class="dropdown__link" role="menuitem" href="../astrokartografiya/">Астрокартография</a><a class="dropdown__link" role="menuitem" href="../kariernaya-astrologiya/">Карьерная астрология</a><a class="dropdown__link" role="menuitem" href="../detskaya-astrologiya/">Детская астрология</a><a class="dropdown__link" role="menuitem" href="../meditsinskaya-astrologiya/">Медицинская астрология</a><a class="dropdown__link" role="menuitem" href="../rektifikatsiya-rozhdeniya/">Ректификация времени рождения</a><a class="dropdown__link" role="menuitem" href="../horarnaya-astrologiya/">Электив и хорарная астрология</a><a class="dropdown__link dropdown__all" role="menuitem" href="../konsultatsii/">Все консультации →</a>
             </div>
           </li>
           <li><a class="nav__link" href="../voprosy-otvety/">FAQ</a></li>
@@ -92,7 +92,7 @@
       <a href="../detskaya-astrologiya/">Детская астрология</a>
       <a href="../meditsinskaya-astrologiya/">Медицинская астрология</a>
       <a href="../rektifikatsiya-rozhdeniya/">Ректификация времени рождения</a>
-      <a href="../horarnaya-astrologiya/">Хорарная астрология</a>
+      <a href="../horarnaya-astrologiya/">Электив и хорарная астрология</a>
     </nav>
     <a class="mobile-nav__link" href="../voprosy-otvety/">FAQ</a>
     <a class="mobile-nav__link" href="../stati/">Статьи</a>
@@ -108,15 +108,62 @@
       <li><span aria-current="page">Контакты</span></li>
     </ol>
   </nav>
+  <!-- ====================== HERO (client copy) ====================== -->
   <section class="page-hero section--tight">
+    <div class="container">
+      <div class="reveal" style="max-width:840px">
+        <span class="eyebrow">Контакты</span>
+        <h1>Записаться на консультацию</h1>
+        <p class="lead">Чтобы записаться на консультацию вам необходимо заполнить следующую форму или
+          связаться со мной по указанным каналам.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== HOW TO BOOK (client copy) ====================== -->
+  <section class="section bg-cream" id="how-to-book" aria-labelledby="book-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow is-centered">Четыре простых шага</span>
+        <h2 id="book-title">Как записаться</h2>
+      </div>
+
+      <div class="readings-grid">
+        <article class="reading reveal">
+          <span class="reading__num" aria-hidden="true">01</span>
+          <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12v18H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
+          <h3>Заполните форму</h3>
+          <p>Заполните предложенную форму, указав ваше имя, телефон, email.</p>
+        </article>
+        <article class="reading reveal" data-delay="1">
+          <span class="reading__num" aria-hidden="true">02</span>
+          <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></span>
+          <h3>Я свяжусь с вами</h3>
+          <p>Я свяжусь с вами для обсуждения всех деталей.</p>
+        </article>
+        <article class="reading reveal" data-delay="2">
+          <span class="reading__num" aria-hidden="true">03</span>
+          <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></span>
+          <h3>Выбираем дату и время</h3>
+          <p>Мы выберем удобное для вас время и дату консультации.</p>
+        </article>
+        <article class="reading reveal" data-delay="3">
+          <span class="reading__num" aria-hidden="true">04</span>
+          <span class="reading__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18v12H3z"/><path d="M3 10h18M7 15h4"/></svg></span>
+          <h3>Анкета и оплата</h3>
+          <p>Вы получите анкету и ссылку на оплату.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- CLIENT COPY ends here. Below: contact channels and the booking form. -->
+
+  <!-- ====================== CHANNELS + FORM ====================== -->
+  <section class="section" aria-labelledby="channels-title">
     <div class="container">
       <div class="split">
         <div>
-          <span class="eyebrow">Контакты</span>
-          <h1>Записаться на консультацию</h1>
-          <p class="lead">Расскажите Ольге немного о том, что вас сейчас волнует и какой разбор вам ближе.
-            Укажите данные рождения (дату, время, если знаете, и место), и она свяжется с вами, чтобы
-            договориться о вашей личной, конфиденциальной консультации.</p>
+          <h2 id="channels-title">Связаться со мной напрямую</h2>
           <p>Удобнее написать на почту или в мессенджер? Выбирайте любой удобный способ связи:</p>
           <ul class="footer__links" style="margin-top:1rem">
             <li><a href="mailto:hello@olga-astro.com">hello@olga-astro.com</a></li>
@@ -139,7 +186,8 @@
           <span class="stub-note">Form connects via Formspree placeholder: swap in the real endpoint before launch.</span>
         </div>
         <div>
-          <form class="form" action="https://formspree.io/f/your-form-id" method="POST">
+          <h2 id="form-title">Форма записи</h2>
+          <form class="form" action="https://formspree.io/f/your-form-id" method="POST" aria-labelledby="form-title">
             <div class="form__row">
               <div class="field">
                 <label for="name">Имя</label>
@@ -162,17 +210,17 @@
             </div>
             <div class="field">
               <label for="reading">Какой разбор вас интересует?</label>
-              <input id="reading" name="reading" type="text" list="readings" placeholder="например, разбор натальной карты">
+              <input id="reading" name="reading" type="text" list="readings" placeholder="например, натальная карта">
               <datalist id="readings">
-                <option value="Разбор натальной карты"></option>
+                <option value="Натальная карта"></option>
                 <option value="Астрологический прогноз"></option>
-                <option value="Синастрия и совместимость"></option>
-                <option value="Астрокартография"></option>
-                <option value="Карьерная астрология"></option>
-                <option value="Детская астрология"></option>
-                <option value="Медицинская астрология"></option>
-                <option value="Ректификация времени рождения"></option>
-                <option value="Хорарная астрология"></option>
+                <option value="Синастрия (гороскоп совместимости)"></option>
+                <option value="Релокация (гороскоп переезда)"></option>
+                <option value="Профориентация"></option>
+                <option value="Детский гороскоп"></option>
+                <option value="Гороскоп здоровья"></option>
+                <option value="Ректификация"></option>
+                <option value="Электив (подбор даты события)"></option>
                 <option value="Подарочный сертификат"></option>
                 <option value="Пока не знаю"></option>
               </datalist>
@@ -219,7 +267,7 @@
 
         <div>
           <h4>Разделы</h4>
-          <ul class="footer__links"><li><a href="../ob-olge/">Об Ольге</a></li><li><a href="../voprosy-otvety/">FAQ</a></li><li><a href="../stati/">Статьи</a></li><li><a href="../kontakty/">Контакты</a></li><li><a href="../detskaya-astrologiya/">Детская астрология</a></li><li><a href="../horarnaya-astrologiya/">Хорарная астрология</a></li></ul>
+          <ul class="footer__links"><li><a href="../ob-olge/">Об Ольге</a></li><li><a href="../voprosy-otvety/">FAQ</a></li><li><a href="../stati/">Статьи</a></li><li><a href="../kontakty/">Контакты</a></li><li><a href="../detskaya-astrologiya/">Детская астрология</a></li><li><a href="../horarnaya-astrologiya/">Электив и хорарная астрология</a></li></ul>
         </div>
 
         <div>
@@ -244,6 +292,6 @@
     </div>
   </footer>
 
-  <script src="../../js/main.js?v=20260624b"></script>
+  <script src="../../js/main.js?v=20260810a"></script>
 </body>
 </html>

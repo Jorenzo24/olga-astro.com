@@ -41,6 +41,8 @@ online astrology **consultations** (not mass-market horoscopes). Trilingual
   comma there reads as an error to natives. So grep `—`/`&mdash;` before commit on EN/FR
   only; RU is exempt.
 - **Big text blocks** are justified: `text-align:justify;-webkit-hyphens:auto;hyphens:auto`.
+- `.facts` (duration/price band) and `.note` (caveat aside) are components in
+  `css/style.css` §18/§19. Use them; do not restyle inline.
 - **Hero action buttons** live in a flex container
   (`display:flex;flex-wrap:wrap;gap:.9rem`), never a bare `<p>` — inline flow makes
   them overlap when long FR/RU labels wrap.
@@ -50,6 +52,9 @@ online astrology **consultations** (not mass-market horoscopes). Trilingual
   under `isolation:isolate`).
 
 ## Brand
+- Her full name is **Ольга Матюшкина / Olga Matyushkina** and she has been consulting
+  for **more than 9 years** (from her own bio, 2026-08-10). Both facts are now live in
+  the about pages and in the `Person` / `provider` JSON-LD across the site.
 - Palette: midnight navy `#0a112e`/`#101d49`, warm gold `#c9a24b`/`#e6c97f`,
   cream `#f7f2e8`. Celestial-refined aesthetic (subtle starfield, gold rules).
 - Type: **Cormorant Garamond** (display) + **Inter** (body), via Google Fonts.
@@ -95,9 +100,10 @@ header/mobile **language switcher** (`.lang-switch`).
   Parallel subagents (one per page/lang) work well here; keep the FAQ JSON-LD text
   byte-identical to the visible FAQ. FR reads native; RU is a strong AI draft pending
   Olga's review (the 7 newest RU landings had a native-editor polish pass).
-- Known TODO: JSON-LD **text** on the FR/RU **home + natal + forecast** pages is
-  still EN (URLs are localised); localise those schema strings in a later pass. The
-  other 7 FR/RU landings already have localised Service/FAQ/Breadcrumb schema text.
+- JSON-LD text is now localised on **every** landing, about and contact page in all 3
+  languages (the old "schema still in EN" TODO is closed). Only the 3 **home** pages
+  still carry some EN schema strings, and they have a visible FAQ with **no FAQPage
+  schema** — worth adding.
 
 ### Landing pages (folder → primary keyword)
 - `natal-chart-reading/` → birth/natal chart reading
@@ -108,26 +114,56 @@ header/mobile **language switcher** (`.lang-switch`).
 - `children-astrology-reading/` → children's astrology reading
 - `medical-astrology-reading/` → medical astrology reading
 - `birth-time-rectification/` → birth time rectification
-- `horary-astrology-reading/` → horary astrology reading
+- `horary-astrology-reading/` → **electional** astrology (choosing a date) **+ horary**
+  ⚠️ This page pivoted (2026-08-10). Olga's copy for this URL is about *Электив*,
+  choosing the date of an event. The slug, hreflang, sitemap and internal links were
+  deliberately KEPT; the page now leads on electional and keeps the whole horary body
+  below, bridged by her heading "Ситуация, требующая разрешения" / "A situation that
+  needs resolving" / « Une situation à trancher ». Nav and card labels read
+  "Электив и хорарная астрология" / "Electional & Horary Astrology" /
+  « Astrologie électionnelle et horaire ».
 
-**Complete** (full EN + transcreated FR/RU): **all 9 landings** plus home. Each new
-landing has its own thematic hero (`<key>-hero.*`) and cosmos band (`<key>-cosmos.*`)
-in `assets/img/` (Unsplash/Pexels, free licence). No STUBS remain.
+**Complete** (full EN + transcreated FR/RU): **all 9 landings** plus home, about and
+contact. Each landing has its own thematic hero (`<key>-hero.*`) and cosmos band
+(`<key>-cosmos.*`) in `assets/img/` (Unsplash/Pexels, free licence). No STUBS remain
+except the Formspree placeholder on the contact pages.
 
-**To build a landing:** write the full EN page mirroring the natal/forecast template
-(hero, what-it-is SEO body, 6 benefit cards, emotional cosmos band, 4-step process,
-who-it's-for, Olga E-E-A-T split, FAQ accordion + FAQPage JSON-LD, related readings,
-CTA — single H1, hreflang + switcher already wired, no em dashes). Give each landing
-its **own thematic hero image** (downloaded, webp+jpg, portrait) — the home chart
-wheel is reserved for the home page (e.g. natal = a glass natal-chart wheel,
-forecast = a moon). Then localise FR + RU via the flow above.
+## ⚠️ Page anatomy since the client rewrite (2026-08-10)
+
+Olga rewrote her own copy (doc "сайт новый правки"). **Her copy comes first, in her
+exact order, uninterrupted by ours**; the earlier SEO copy is kept but sits **below**.
+Every landing now follows this order, and no two adjacent sections share a background:
+
+1. HERO `.section--tight` (plain) — her opening paragraphs
+2. "… is for you if…" `bg-cream` — `ul.qlist`
+3. What you get + price `bg-dark` + `.starfield` — `ul.qgrid`, `.note`, `.facts`, `.qcta`
+4. How it works `id="how-it-works"` `bg-cream` — her 4 steps as `.reading` cards 01-04
+   `<!-- CLIENT COPY ends here. Below: complementary SEO sections. -->`
+5. SEO prose (plain) · 6. 6 benefit cards `bg-cream` · 7. cosmos band `bg-dark` ·
+   8. Olga E-E-A-T `bg-cream` · 9. FAQ (plain) · 10. related `bg-cream` · 11. CTA `bg-dark`
+
+Sections she gave no copy for are **omitted, never invented**. Rules that follow from this:
+- `.facts` (duration/price) exists ONLY where she gave the figure. **Never write
+  "price on request".** Live prices: natal 2 h / 300 €, forecast 1 h / 250 €. Duration
+  only (1 h): relocation, career, children, medical. Nothing at all: synastry,
+  rectification, electional. A lone `.facts` cell gets `style="max-width:420px"`.
+- Her shared 4-step "Как это проходит" block is on the **7 chart-based** landings only.
+  Rectification and electional keep their own process (her steps would be circular there).
+- Where she gave a price, the Service JSON-LD carries a matching `offers` block.
+- Her H1s lead with her own wording (Профориентация, Гороскоп здоровья, Релокация,
+  Электив…) while the money keyword stays in the H1 tail, the `<title>` and the SEO H2.
+  The nav still uses the keyword-rich labels; only the horary→electional label changed.
+
+**To build a landing:** mirror `ru/natalnaya-karta/index.html`, the canonical reference.
+Give each landing its **own thematic hero image** (downloaded, webp+jpg, portrait) — the
+home chart wheel is reserved for the home page. Then localise FR + RU via the flow above.
 
 ## Cache-busting (important)
 `.htaccess` caches CSS/JS for **1 month** and images for 1 year. Whenever you edit
 `css/style.css` or `js/main.js`, **bump the version query string** `?v=AAAAMMJJx`
 (date + letter, e.g. `?v=20260618a` → `20260618b`) on EVERY `<link>`/`<script>`
 that references them, across **all** pages — otherwise returning visitors get
-stale assets for up to a month. Current version stamp: **v=20260624b**.
+stale assets for up to a month. Current version stamp: **v=20260810a**.
 
 ## Theming gotcha (important)
 Do NOT put `class="bg-dark"` on `<body>`. The `.bg-dark h2/h3/p/li` rules recolor
