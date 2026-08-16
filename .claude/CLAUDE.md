@@ -71,7 +71,9 @@ online astrology **consultations** (not mass-market horoscopes). Trilingual
 - Per page: unique `<title>`, meta description, `<link rel="canonical">`,
   OG + Twitter tags, a single `<h1>`.
 - JSON-LD on home: `WebSite` + `Person` (Olga) + `Service` list (9 consultations).
-  FAQPage schema is live on `/natal-chart-reading/` (mirror it on other landings).
+  **FAQPage schema is live on all 9 landings in all 3 languages**, and every
+  `name`/`text` string is byte-identical to the visible FAQ. Keep it that way: Google
+  treats drifted FAQ schema as a violation. Verify with the audit snippet below.
 - `robots.txt` allows all (production-ready); `sitemap.xml` lists every page in
   all 3 languages with `xhtml:link` hreflang alternates.
 
@@ -101,9 +103,8 @@ header/mobile **language switcher** (`.lang-switch`).
   byte-identical to the visible FAQ. FR reads native; RU is a strong AI draft pending
   Olga's review (the 7 newest RU landings had a native-editor polish pass).
 - JSON-LD text is now localised on **every** landing, about and contact page in all 3
-  languages (the old "schema still in EN" TODO is closed). Only the 3 **home** pages
-  still carry some EN schema strings, and they have a visible FAQ with **no FAQPage
-  schema** — worth adding.
+  languages (the old "schema still in EN" TODO is closed). See the open items below for
+  what is left on the home pages.
 
 ### Landing pages (folder → primary keyword)
 - `natal-chart-reading/` → birth/natal chart reading
@@ -157,6 +158,65 @@ Sections she gave no copy for are **omitted, never invented**. Rules that follow
 **To build a landing:** mirror `ru/natalnaya-karta/index.html`, the canonical reference.
 Give each landing its **own thematic hero image** (downloaded, webp+jpg, portrait) — the
 home chart wheel is reserved for the home page. Then localise FR + RU via the flow above.
+
+## 📋 Open items (as of 2026-08-10, after the client rewrite)
+
+**Waiting on Olga — missing prices/durations.** She priced only 2 of the 9
+consultations. Nothing was invented, so these landings simply show no `.facts` band.
+Ask her for, then add (+ a matching `offers` block in the Service JSON-LD ×3 languages):
+
+| Consultation | Has | Missing |
+|---|---|---|
+| Relocation, career, children, medical | duration 1 h | **price** |
+| Synastry, rectification, electional | — | **price + duration** |
+
+**Known gaps, all pre-existing, none introduced by the rewrite:**
+- The 3 **home** pages have a visible 4-item FAQ with **no FAQPage schema**, and still
+  carry some EN strings in their JSON-LD. Adding FAQPage there is the cheapest remaining
+  rich-result win.
+- 9 pages have meta descriptions over ~158 chars (Google truncates them). None are pages
+  Olga rewrote: `fr/articles`, `fr/consultations`, `fr/contact`, `fr/faq`, `fr/index`,
+  `ru/konsultatsii`, `ru/kontakty`, `ru/stati`, `ru/voprosy-otvety`.
+- Contact form still on the Formspree placeholder (see Git section).
+- RU copy is Olga's own words now, so it no longer needs a native review pass. FR and EN
+  are transcreations of her Russian and read native.
+
+**Decision left open:** nav/dropdown/footer labels still use the keyword-rich service
+names (`Карьерная астрология`, `Медицинская астрология`, `Астрокартография`) while her
+H1s lead with her own wording (`Профориентация`, `Гороскоп здоровья`, `Релокация`). Kept
+that way deliberately to preserve internal anchor text. Only the horary→electional label
+was changed, because there the *subject* changed, not just the synonym. Joseph may still
+want to align the rest: it is a sitewide sed on anchor text (`>Label</a>`) across 46 files.
+
+## Audit snippet (run before any commit that touches page bodies)
+
+```bash
+python3 - << 'PY'
+import io,glob,json,re,html
+from collections import Counter
+def txt(x): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>',' ',x))).replace(' ',' ').strip()
+bad=[]
+for p in sorted(glob.glob('**/index.html',recursive=True)):
+    s=io.open(p,encoding='utf-8').read(); iss=[]
+    lang='ru' if p.startswith('ru/') else ('fr' if p.startswith('fr/') else 'en')
+    if s.count('<h1')!=1: iss.append('h1')
+    if s.count('<section')!=s.count('</section>'): iss.append('sec')
+    if [k for k,v in Counter(re.findall(r'\sid="([^"]+)"',s)).items() if v>1]: iss.append('dup-id')
+    if lang!='ru' and (s.count('—')+s.count('&mdash;')): iss.append('EM-DASH')
+    for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>',s,re.S):
+        try:
+            j=json.loads(m.group(1))
+            if isinstance(j,dict) and j.get('@type')=='FAQPage':
+                vis=[txt(x.group(1)) for x in re.finditer(r'<button class="accordion__trigger"[^>]*>(.*?)</button>',s,re.S)]
+                if [txt(q['name']) for q in j['mainEntity']]!=vis: iss.append('FAQ-DRIFT')
+        except Exception: iss.append('BAD-JSON-LD')
+    seq=[('d' if 'bg-dark' in c else 'c' if 'bg-cream' in c else 'p') for c in re.findall(r'<section class="([^"]*)"',s)]
+    if any(seq[i]==seq[i-1] for i in range(1,len(seq))): iss.append('bg-repeat')
+    if iss: bad.append((p,iss))
+print('ALL CLEAN' if not bad else bad)
+PY
+```
+Also check internal links resolve and no `?v=` stamp is stale.
 
 ## Cache-busting (important)
 `.htaccess` caches CSS/JS for **1 month** and images for 1 year. Whenever you edit
