@@ -31,7 +31,8 @@ overwrites it, so `.htaccess` now carries **301s from every old URL to the match
   «Ситуация, требующая разрешения» opens with the natal-chart text. That is why the
   personal-life consultation effectively never existed.
 - `assets/img/olga-banner.*` **is** the old home banner (`bandeau-Olga-astro.png`,
-  1920x700, byte-for-byte the same picture). It is now the RU home hero.
+  1920x700, byte-for-byte the same picture). It is now the **RU** home hero
+  (`.hero--banner`); EN and FR still run the older split hero. See open items.
 
 ## Hosting & deploy
 - VPS Hetzner + cPanel. Deploy path: `/home/CPANELUSER/public_html/`.
@@ -66,10 +67,13 @@ overwrites it, so `.htaccess` now carries **301s from every old URL to the match
 - **Hero action buttons** live in a flex container
   (`display:flex;flex-wrap:wrap;gap:.9rem`), never a bare `<p>` — inline flow makes
   them overlap when long FR/RU labels wrap.
-- **`.reading` cards are whole-card clickable** via the title's stretched-link
-  (`.reading h3 a::after{inset:0}`). Keep `.reading h3` UNpositioned, or the link
+- **`.reading` and `.showcase` cards are whole-card clickable** via the title's
+  stretched-link (`h3 a::after{inset:0}`). Keep that `h3` UNpositioned, or the link
   shrinks back to just the heading (the watermark `.reading__num` sits at `z-index:-1`
   under `isolation:isolate`).
+- **Named CSS sections** worth knowing in `css/style.css`: §18 `.facts`, §19 `.note`,
+  §20 `.hero--banner` (RU home), §21 narrow-desktop header, §22 `.showcase` +
+  `.readings-grid--trio` (home consultations).
 
 ## Brand
 - Her full name is **Ольга Матюшкина / Olga Matyushkina** and she has been consulting
@@ -90,9 +94,10 @@ overwrites it, so `.htaccess` now carries **301s from every old URL to the match
 - Home money keyword: **online astrology consultation**.
 - Per page: unique `<title>`, meta description, `<link rel="canonical">`,
   OG + Twitter tags, a single `<h1>`.
-- JSON-LD on home: `WebSite` + `Person` (Olga) + `Service` list (RU: 10 consultations,
-  fully localised; EN/FR: still 9 and still in English, see open items).
-  **FAQPage schema is live on every landing in all 3 languages** (10 in RU, 9 in EN/FR), and every
+- JSON-LD on home: `WebSite` + `Person` (Olga) + `Service` list, **10 consultations in
+  all 3 languages**. RU is fully localised; EN/FR strings are still English (fine for EN,
+  a gap for FR, see open items).
+  **FAQPage schema is live on all 10 landings in all 3 languages**, and every
   `name`/`text` string is byte-identical to the visible FAQ. Keep it that way: Google
   treats drifted FAQ schema as a violation. Verify with the audit snippet below.
 - `robots.txt` allows all (production-ready); `sitemap.xml` lists every page in
@@ -106,7 +111,7 @@ with **localised slugs** (e.g. `natal-chart-reading/` ↔ `/fr/etude-de-theme-na
 header/mobile **language switcher** (`.lang-switch`).
 - Asset paths stay **relative** and depth-aware: EN interior = `../`, FR/RU home =
   `../`, FR/RU interior = `../../`.
-- The shell of every one of the 46 pages (header/footer/switcher/hreflang/breadcrumb/
+- The shell of every one of the 48 pages (header/footer/switcher/hreflang/breadcrumb/
   depth-aware paths) **already exists and is correct in the page itself.** Editing is
   surgical: change only the `<head>` meta/JSON-LD and the body, never the shell.
 - ⚠️ The old assembler `scratchpad/build_i18n.py` + `scratchpad/i18n/*` fragments were
@@ -121,23 +126,34 @@ header/mobile **language switcher** (`.lang-switch`).
      (FR/RU interior = `../../`), localised sibling slugs, and localise the Service +
      FAQPage + Breadcrumb JSON-LD strings to match the visible copy.
   Parallel subagents (one per page/lang) work well here; keep the FAQ JSON-LD text
-  byte-identical to the visible FAQ. FR reads native; RU is a strong AI draft pending
-  Olga's review (the 7 newest RU landings had a native-editor polish pass).
-- JSON-LD text is now localised on **every** landing, about and contact page in all 3
-  languages (the old "schema still in EN" TODO is closed). See the open items below for
-  what is left on the home pages.
+  byte-identical to the visible FAQ. **RU is Olga's own words** (she wrote the copy and
+  then corrected it herself in Sept 2026), so it needs no native review. EN and FR are
+  transcreations of her Russian and read native.
+- JSON-LD text is localised on **every** landing, about and contact page in all 3
+  languages, and the home `Service` lists carry all 10. Only the FR home JSON-LD strings
+  are still English, see open items.
 
 ### Landing pages (EN folder → primary keyword)
-- `natal-chart-reading/` → birth/natal chart reading
-- `astrology-forecast-reading/` → astrology forecast reading
-- `love-astrology-reading/` → love astrology reading (FR `fr/astrologie-amour/`)
-- `synastry-compatibility-reading/` → synastry / compatibility reading
-- `relocation-astrology-reading/` → relocation astrology / astrocartography
-- `career-astrology-reading/` → career astrology reading
-- `children-astrology-reading/` → children's astrology reading
-- `medical-astrology-reading/` → medical astrology reading
-- `birth-time-rectification/` → birth time rectification
-- `horary-astrology-reading/` → **electional** astrology (choosing a date) **+ horary**
+In Olga's order, the same order the nav, footers and card grids use in all 3 languages:
+
+1. `natal-chart-reading/` → birth/natal chart reading
+2. `astrology-forecast-reading/` → astrology forecast reading
+3. `love-astrology-reading/` → love astrology reading (added 2026-09-16)
+4. `synastry-compatibility-reading/` → synastry / compatibility reading
+5. `career-astrology-reading/` → career astrology reading
+6. `children-astrology-reading/` → children's astrology reading
+7. `relocation-astrology-reading/` → relocation astrology / astrocartography
+8. `medical-astrology-reading/` → medical astrology reading
+9. `birth-time-rectification/` → birth time rectification
+10. `horary-astrology-reading/` → **electional** astrology (choosing a date) **+ horary**
+
+    ⚠️ This page pivoted (2026-08-10). Olga's copy for this URL is about *Электив*,
+    choosing the date of an event. The slug, hreflang, sitemap and internal links were
+    deliberately KEPT; the page leads on electional and keeps the whole horary body
+    below, bridged by her heading "Ситуация, требующая разрешения" / "A situation that
+    needs resolving" / « Une situation à trancher ». EN/FR nav and card labels read
+    "Electional & Horary Astrology" / « Astrologie électionnelle et horaire »; the RU H1
+    and labels now use her own name for it, «Ситуации, требующие разрешения» (open #2).
 
 ### ⚠️ RU vocabulary diverges from EN/FR, deliberately (2026-09-16)
 Olga's corrections were written against the `/ru/` URLs. **Her "consultation only" rule
@@ -164,8 +180,9 @@ The ten, in her order:
 | 9 | Ректификация | `ru/rektifikatsiya/` | birth-time-rectification |
 | 10 | Ситуации, требующие разрешения | `ru/razreshenie-situatsii/` | horary-astrology-reading |
 
-**Her vocabulary rule (RU only, absolute there).** In Russian the service is *always* «консультация», never
-«разбор» and never «анализ». Both nouns are now at **zero** across the 16 RU pages, and
+**Her vocabulary rule (RU only, absolute there).** In Russian the service is *always*
+«консультация», never «разбор» and never «анализ». Both nouns are at **zero** across the
+16 RU pages, and
 the audit for it is `grep -r "разбор\|анализ" ru/`. Mind the gender flip when editing:
 разбор is masculine, консультация feminine, so adjectives, participles and anaphoric
 pronouns all move (`этот разбор остаётся содержательным` → `эта консультация остаётся
@@ -177,18 +194,11 @@ Other RU-only changes from the same round: the FAQ section is renamed **«Воп
 4-question Q&A ported from the old site plus FAQPage schema, `ru/ob-olge/` publishes her
 bio **unsplit** (one continuous text, Socrates epigraph restored, no invented H2s), and
 the RU home uses the **full-bleed banner hero** (`.hero--banner`, css §20).
-  ⚠️ This page pivoted (2026-08-10). Olga's copy for this URL is about *Электив*,
-  choosing the date of an event. The slug, hreflang, sitemap and internal links were
-  deliberately KEPT; the page now leads on electional and keeps the whole horary body
-  below, bridged by her heading "Ситуация, требующая разрешения" / "A situation that
-  needs resolving" / « Une situation à trancher ». Nav and card labels read
-  "Электив и хорарная астрология" / "Electional & Horary Astrology" /
-  « Astrologie électionnelle et horaire ».
 
-**Complete** (full EN + transcreated FR/RU): **9 landings** plus home, about and
-contact. Each landing has its own thematic hero (`<key>-hero.*`) and cosmos band
-(`<key>-cosmos.*`) in `assets/img/` (Unsplash/Pexels, free licence). No STUBS remain
-except the Formspree placeholder on the contact pages.
+**Complete** (full EN + FR + RU): **all 10 landings** plus home, about and contact. Each
+landing has its own thematic hero (`<key>-hero.*`) and cosmos band (`<key>-cosmos.*`) in
+`assets/img/` (Unsplash/Pexels free licence, except `love-*` which is cropped from a
+source Joseph supplied). No STUBS remain except the Formspree placeholder on contact.
 
 ## ⚠️ Page anatomy since the client rewrite (2026-08-10)
 
@@ -207,18 +217,39 @@ Every landing now follows this order, and no two adjacent sections share a backg
 Sections she gave no copy for are **omitted, never invented**. Rules that follow from this:
 - `.facts` (duration/price) exists ONLY where she gave the figure. **Never write
   "price on request".** Live prices: natal 2 h / 300 €, forecast 1 h / 250 €. Duration
-  only (1 h): relocation, career, children, medical. Nothing at all: synastry,
+  only (1 h): **love**, relocation, career, children, medical. Nothing at all: synastry,
   rectification, electional. A lone `.facts` cell gets `style="max-width:420px"`.
-- Her shared 4-step "Как это проходит" block is on the **7 chart-based** landings only.
-  Rectification and electional keep their own process (her steps would be circular there).
+  That is 7 landings with a `.facts` band per language, 3 without.
+- Her shared 4-step "Как это проходит" block is on the **8 chart-based** landings
+  (love included, with step 03 tilted towards marriage and partnership). Rectification
+  and electional keep their own process (her steps would be circular there).
 - Where she gave a price, the Service JSON-LD carries a matching `offers` block.
-- Her H1s lead with her own wording (Профориентация, Гороскоп здоровья, Релокация,
-  Электив…) while the money keyword stays in the H1 tail, the `<title>` and the SEO H2.
-  The nav still uses the keyword-rich labels; only the horary→electional label changed.
+- Her H1s lead with her own wording (Профориентация, Гороскоп здоровья, Релокация…)
+  while the money keyword stays in the H1 tail, the `<title>` and the SEO H2.
+  **Since 2026-09-16 the RU nav, dropdown, footer and cards use her names too**; EN and
+  FR nav keep the keyword-rich labels. See the divergence section above.
 
-**To build a landing:** mirror `ru/natalnaya-karta/index.html`, the canonical reference.
-Give each landing its **own thematic hero image** (downloaded, webp+jpg, portrait) — the
-home chart wheel is reserved for the home page. Then localise FR + RU via the flow above.
+**To build a landing:** mirror `ru/natalnaya-karta/index.html` for RU, and
+`natal-chart-reading/` or `fr/etude-de-theme-natal/` for EN/FR, so each language keeps
+its own vocabulary. Give each landing its **own thematic hero image** (downloaded,
+webp+jpg, portrait ~900x1020) and cosmos band (~1600x900) — the home chart wheel is
+reserved for the home page, and a hero photo must not be reused across two landings.
+`love-astrology-reading/` and `fr/astrologie-amour/` were generated from one shared
+template in a single pass, which is why their structure is identical line for line. Good
+pattern for the next pair: build both languages from one script rather than hand-copying,
+then let the copy differ.
+
+## Home consultations section: three tiers (2026-09-16)
+Ten consultations broke the old "featured + two rows of four" (it left an orphan row), so
+the section on all three home pages now reads: the **featured** natal card, then **three
+illustrated `.showcase` cards** (forecast, love, synastry) using the landings' own hero
+photos, then a `.eyebrow.tier-label` separator and the **six specialised ones** in
+`.readings-grid--trio` (3 across = two full rows). 1 + 3 + 6 = 10, and no tier leaves a
+half-empty row at any breakpoint. Components in `css/style.css` §22. `.showcase h3` must
+stay UNpositioned, same stretched-link rule as `.reading`.
+
+Photos for the love landing: `assets/img/love-hero.*` (900x1020) and `love-cosmos.*`
+(1600x900), both cropped from the source Joseph supplied; shared by the three languages.
 
 ## 📋 Open items (as of 2026-09-16, after Olga's corrections round)
 
@@ -237,31 +268,36 @@ this consultation that way and does not mention «Электив» at all, yet i
 pivoted this very page *to* electional (choosing a date). The page now leads with her
 name and keeps **both** the electional and horary bodies. Worth one question to her.
 
+**#3 — The three home pages no longer share a hero.** Olga asked for the old site's
+full-bleed banner and it was built for RU (`.hero--banner`, css §20). EN and FR still run
+the older split hero with `olga-portrait`. Either port the banner to them or decide the
+homes are allowed to differ; right now it is an accident of scope, not a decision.
+
 **Known gaps, pre-existing:**
-- The 3 **home** pages have a visible 4-item accordion with **no FAQPage schema**.
-  RU's home JSON-LD is now fully Russian with all 10 services; **EN and FR home JSON-LD
-  are still English-only, but now list all 10.** Note the home accordion headings are topic labels,
-  not questions, so FAQPage there would need genuine Q&A first.
-- Meta descriptions over ~158 chars on: `fr/articles`, `fr/consultations`, `fr/contact`,
-  `fr/faq`, `fr/index`, `ru/stati`. (`ru/konsultatsii`, `ru/kontakty` and
-  `ru/voprosy-otvety` were fixed in this round.)
+- The 3 **home** pages have a visible 4-item accordion with **no FAQPage schema**. Note
+  those accordion headings are topic labels, not questions, so FAQPage there would need
+  genuine Q&A written first, it is not a copy-paste job.
+- The **FR home JSON-LD strings are still in English** (`WebSite` description, `Person`
+  description, `serviceType`). RU is fully localised, EN is correct by definition.
+- Meta descriptions over 158 chars (Google truncates) on 6 pages: `fr/articles` 197,
+  `fr/contact` 194, `fr/consultations` 192, `fr/faq` 179, `ru/stati` 174, `fr` 166.
+  Re-measure rather than trusting this list, it drifts:
+
+```bash
+python3 - <<'PY'
+import io,glob,re,html
+for p in sorted(glob.glob('**/index.html',recursive=True)):
+    s=io.open(p,encoding='utf-8').read()
+    m=re.search(r'<meta name="description" content="(.*?)">',s,re.S)
+    if m and len(html.unescape(m.group(1)))>158:
+        print(p.replace('/index.html',''), len(html.unescape(m.group(1))))
+PY
+```
 - Contact form still on the Formspree placeholder (see Git section).
 
 **Resolved:** the nav/footer label decision (RU = her names, EN/FR = keyword labels, by
 Joseph's arbitration), the `ru/voprosy-otvety` stub, the RU home JSON-LD, the love
-consultation in all three languages, and the home grid (see below).
-
-## Home consultations section: three tiers (2026-09-16)
-Ten consultations broke the old "featured + two rows of four" (it left an orphan row), so
-the section on all three home pages now reads: the **featured** natal card, then **three
-illustrated `.showcase` cards** (forecast, love, synastry) using the landings' own hero
-photos, then a `.eyebrow.tier-label` separator and the **six specialised ones** in
-`.readings-grid--trio` (3 across = two full rows). 1 + 3 + 6 = 10, and no tier leaves a
-half-empty row at any breakpoint. Components in `css/style.css` §22. `.showcase h3` must
-stay UNpositioned, same stretched-link rule as `.reading`.
-
-Photos for the love landing: `assets/img/love-hero.*` (900x1020) and `love-cosmos.*`
-(1600x900), both cropped from the source Joseph supplied; shared by the three languages.
+consultation in all three languages, and the home consultations grid.
 
 ## Audit snippet (run before any commit that touches page bodies)
 
