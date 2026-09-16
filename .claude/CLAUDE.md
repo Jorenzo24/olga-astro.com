@@ -130,6 +130,7 @@ header/mobile **language switcher** (`.lang-switch`).
 ### Landing pages (EN folder → primary keyword)
 - `natal-chart-reading/` → birth/natal chart reading
 - `astrology-forecast-reading/` → astrology forecast reading
+- `love-astrology-reading/` → love astrology reading (FR `fr/astrologie-amour/`)
 - `synastry-compatibility-reading/` → synastry / compatibility reading
 - `relocation-astrology-reading/` → relocation astrology / astrocartography
 - `career-astrology-reading/` → career astrology reading
@@ -138,17 +139,23 @@ header/mobile **language switcher** (`.lang-switch`).
 - `birth-time-rectification/` → birth time rectification
 - `horary-astrology-reading/` → **electional** astrology (choosing a date) **+ horary**
 
-### ⚠️ RU is now the reference language and has diverged (2026-09-16)
-Olga sent corrections against the `/ru/` URLs. **RU was brought fully in line; EN and FR
-have NOT been touched yet.** Until they are, RU is ahead and the three languages differ
-in slugs, labels, order and one whole page. RU slugs were renamed (site is `noindex`, so
-no redirect debt) and the order is **hers**:
+### ⚠️ RU vocabulary diverges from EN/FR, deliberately (2026-09-16)
+Olga's corrections were written against the `/ru/` URLs. **Her "consultation only" rule
+applies to Russian ONLY.** Joseph's arbitration: EN and FR keep `reading` / « étude »,
+because the entire English keyword set (`*-reading` slugs) is built on it and her rule
+would cost the rankings. So expect, permanently until she says otherwise:
+- RU: «консультация» everywhere, her own service names, her slugs.
+- EN/FR: "reading" / « étude », keyword-rich labels, existing slugs.
+- **All three share her ORDER and her ten consultations.** Order and inventory are
+  product decisions and stay in sync; only the wording differs.
+
+The ten, in her order:
 
 | # | Her name (RU, use it verbatim) | RU slug | EN sibling |
 |---|---|---|---|
 | 1 | Личный гороскоп или натальная карта | `ru/natalnaya-karta/` | natal-chart-reading |
 | 2 | Астрологический прогноз | `ru/astrologicheskiy-prognoz/` | astrology-forecast-reading |
-| 3 | **Гороскоп личной жизни** | `ru/goroskop-lichnoy-zhizni/` | **none yet** |
+| 3 | Гороскоп личной жизни | `ru/goroskop-lichnoy-zhizni/` | love-astrology-reading |
 | 4 | Синастрия — гороскоп совместимости | `ru/sinastriya-sovmestimost/` | synastry-compatibility-reading |
 | 5 | Профориентация | `ru/proforientatsiya/` | career-astrology-reading |
 | 6 | Детский гороскоп | `ru/detskiy-goroskop/` | children-astrology-reading |
@@ -157,13 +164,13 @@ no redirect debt) and the order is **hers**:
 | 9 | Ректификация | `ru/rektifikatsiya/` | birth-time-rectification |
 | 10 | Ситуации, требующие разрешения | `ru/razreshenie-situatsii/` | horary-astrology-reading |
 
-**Her vocabulary rule (absolute).** The service is *always* «консультация», never
+**Her vocabulary rule (RU only, absolute there).** In Russian the service is *always* «консультация», never
 «разбор» and never «анализ». Both nouns are now at **zero** across the 16 RU pages, and
 the audit for it is `grep -r "разбор\|анализ" ru/`. Mind the gender flip when editing:
 разбор is masculine, консультация feminine, so adjectives, participles and anaphoric
 pronouns all move (`этот разбор остаётся содержательным` → `эта консультация остаётся
 содержательной`). The **verb** разобраться («разобраться в себе») is fine and stays.
-EN/FR still say "reading" / « étude » everywhere: that is the pending half of this job.
+EN/FR keep "reading" / « étude » on purpose, see above: do not "fix" them.
 
 Other RU-only changes from the same round: the FAQ section is renamed **«Вопрос-ответ»**
 (her old site's own wording), `ru/voprosy-otvety/` was a **stub** and is now the full
@@ -215,16 +222,9 @@ home chart wheel is reserved for the home page. Then localise FR + RU via the fl
 
 ## 📋 Open items (as of 2026-09-16, after Olga's corrections round)
 
-**#1 — Propagate the RU round to EN and FR.** This is the big one. RU is the reference
-now; EN/FR still carry the old labels, the old order, "reading"/« étude » vocabulary,
-and no personal-life page. Needed per language: rename the visible labels to her names,
-reorder to her 10, drop reading/étude in favour of consultation/consultation, and
-transcreate `ru/goroskop-lichnoy-zhizni/` (its RU page has no `hreflang` alternates and
-its language switcher falls back to the EN/FR consultations index until the siblings
-exist). Whether EN/FR slugs get renamed too is Joseph's call, same as RU.
-
-**#2 — Waiting on Olga: prices and durations.** Still only 2 of 10 priced. Nothing
+**#1 — Waiting on Olga: prices and durations.** Still only 2 of 10 priced. Nothing
 invented, those landings show no `.facts` band. The old site's flat 200 € is stale.
+
 Ask, then add (+ a matching `offers` block in the Service JSON-LD, each language):
 
 | Consultation | Has | Missing |
@@ -232,12 +232,7 @@ Ask, then add (+ a matching `offers` block in the Service JSON-LD, each language
 | Личной жизни, relocation, career, children, medical | duration 1 h | **price** |
 | Synastry, rectification, "situations requiring resolution" | — | **price + duration** |
 
-**#3 — Placeholder images on the new RU landing.** `assets/img/lichnaya-zhizn-hero.*`
-and `lichnaya-zhizn-cosmos.*` are copies of the synastry visuals: Unsplash and Pexels
-both block downloads from this environment. The filenames are final, so dropping the
-real photos in at those paths needs **no HTML change**.
-
-**#4 — Confirm with Olga: "Ситуации, требующие разрешения".** Her September list names
+**#2 — Confirm with Olga: "Ситуации, требующие разрешения".** Her September list names
 this consultation that way and does not mention «Электив» at all, yet in August she
 pivoted this very page *to* electional (choosing a date). The page now leads with her
 name and keeps **both** the electional and horary bodies. Worth one question to her.
@@ -245,15 +240,28 @@ name and keeps **both** the electional and horary bodies. Worth one question to 
 **Known gaps, pre-existing:**
 - The 3 **home** pages have a visible 4-item accordion with **no FAQPage schema**.
   RU's home JSON-LD is now fully Russian with all 10 services; **EN and FR home JSON-LD
-  are still English-only and list 9**. Note the home accordion headings are topic labels,
+  are still English-only, but now list all 10.** Note the home accordion headings are topic labels,
   not questions, so FAQPage there would need genuine Q&A first.
 - Meta descriptions over ~158 chars on: `fr/articles`, `fr/consultations`, `fr/contact`,
   `fr/faq`, `fr/index`, `ru/stati`. (`ru/konsultatsii`, `ru/kontakty` and
   `ru/voprosy-otvety` were fixed in this round.)
 - Contact form still on the Formspree placeholder (see Git section).
 
-**Resolved this round:** the nav/footer label decision (RU now uses her names
-everywhere, EN/FR pending), the `ru/voprosy-otvety` stub, and the RU home JSON-LD.
+**Resolved:** the nav/footer label decision (RU = her names, EN/FR = keyword labels, by
+Joseph's arbitration), the `ru/voprosy-otvety` stub, the RU home JSON-LD, the love
+consultation in all three languages, and the home grid (see below).
+
+## Home consultations section: three tiers (2026-09-16)
+Ten consultations broke the old "featured + two rows of four" (it left an orphan row), so
+the section on all three home pages now reads: the **featured** natal card, then **three
+illustrated `.showcase` cards** (forecast, love, synastry) using the landings' own hero
+photos, then a `.eyebrow.tier-label` separator and the **six specialised ones** in
+`.readings-grid--trio` (3 across = two full rows). 1 + 3 + 6 = 10, and no tier leaves a
+half-empty row at any breakpoint. Components in `css/style.css` §22. `.showcase h3` must
+stay UNpositioned, same stretched-link rule as `.reading`.
+
+Photos for the love landing: `assets/img/love-hero.*` (900x1020) and `love-cosmos.*`
+(1600x900), both cropped from the source Joseph supplied; shared by the three languages.
 
 ## Audit snippet (run before any commit that touches page bodies)
 
@@ -290,7 +298,7 @@ Also check internal links resolve and no `?v=` stamp is stale.
 `css/style.css` or `js/main.js`, **bump the version query string** `?v=AAAAMMJJx`
 (date + letter, e.g. `?v=20260618a` → `20260618b`) on EVERY `<link>`/`<script>`
 that references them, across **all** pages — otherwise returning visitors get
-stale assets for up to a month. Current version stamp: **v=20260916a**.
+stale assets for up to a month. Current version stamp: **v=20260916b**.
 
 ## Theming gotcha (important)
 Do NOT put `class="bg-dark"` on `<body>`. The `.bg-dark h2/h3/p/li` rules recolor

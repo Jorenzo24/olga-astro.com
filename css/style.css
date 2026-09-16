@@ -883,3 +883,73 @@ body.nav-open { overflow: hidden; }
   .nav__list { gap: .2rem; }
   .nav__link { padding: .55rem .7rem; }
 }
+
+/* ---------------------------------------------------------------------------
+   22. Home consultations showcase (illustrated middle tier)
+   With ten consultations the old "featured + two rows of four" left an orphan
+   row, so the section now reads in three tiers: the natal chart to start from,
+   three illustrated cards, then the six specialised ones three by three. No
+   tier ever leaves a half empty row at any breakpoint.
+   --------------------------------------------------------------------------- */
+.showcase-grid {
+  display: grid; gap: var(--space-md);
+  grid-template-columns: 1fr;
+  margin-bottom: var(--space-lg);
+}
+.showcase {
+  position: relative; isolation: isolate;
+  display: grid; grid-template-columns: 38% 1fr;
+  background: var(--c-white); border: 1px solid var(--c-line);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden;
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+}
+.showcase:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--c-gold-soft); }
+.showcase:focus-within { border-color: var(--c-gold); }
+.showcase__media { position: relative; overflow: hidden; background: var(--c-cream); }
+.showcase__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* thin gold veil so every photo sits in the same key */
+.showcase__media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10, 17, 46, .12), rgba(201, 162, 75, .16));
+}
+.showcase__body { padding: 1.5rem 1.5rem 1.4rem; display: flex; flex-direction: column; }
+.showcase__num {
+  font-family: var(--font-display); font-size: .95rem; font-weight: 600;
+  color: var(--c-gold-deep); letter-spacing: .08em; margin-bottom: .5rem;
+}
+/* NOT positioned, so the stretched link keeps covering the whole card */
+.showcase h3 { font-size: 1.25rem; margin-bottom: .55rem; }
+.showcase h3 a { color: inherit; }
+.showcase h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.showcase p { font-size: .95rem; color: var(--c-ink-soft); }
+.showcase__more {
+  margin-top: auto; padding-top: 1.1rem;
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .9rem; font-weight: 600; color: var(--c-gold-deep);
+}
+.showcase__more svg { width: 16px; height: 16px; transition: transform var(--t); }
+.showcase:hover .showcase__more svg { transform: translateX(4px); }
+
+@media (max-width: 479px) {
+  .showcase { grid-template-columns: 1fr; }
+  .showcase__media { aspect-ratio: 16 / 9; }
+}
+@media (min-width: 880px) {
+  .showcase-grid { grid-template-columns: repeat(3, 1fr); }
+  .showcase { grid-template-columns: 1fr; }
+  .showcase__media { aspect-ratio: 4 / 3; }
+}
+
+/* Label separating the specialised tier from the illustrated one. Not a
+   heading, so the outline stays h2 > h3 cards. */
+/* .eyebrow is inline-flex, so it centres via the parent's text-align. As a
+   standalone element it needs to become a block-level flex row instead. */
+.tier-label {
+  display: flex; justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+/* Six specialised cards: three across instead of four, so 6 = two full rows. */
+@media (min-width: 1000px) {
+  .readings-grid--trio { grid-template-columns: repeat(3, 1fr); }
+}

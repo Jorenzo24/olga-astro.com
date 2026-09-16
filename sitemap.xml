@@ -108,11 +108,23 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://olga-astro.com/ru/kontakty/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://olga-astro.com/contact/"/>
   </url>
+  <url><loc>https://olga-astro.com/love-astrology-reading/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://olga-astro.com/love-astrology-reading/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://olga-astro.com/fr/astrologie-amour/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://olga-astro.com/ru/goroskop-lichnoy-zhizni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://olga-astro.com/love-astrology-reading/"/>
+  </url>
   <url><loc>https://olga-astro.com/natal-chart-reading/</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://olga-astro.com/natal-chart-reading/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://olga-astro.com/fr/etude-de-theme-natal/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://olga-astro.com/ru/natalnaya-karta/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://olga-astro.com/natal-chart-reading/"/>
+  </url>
+  <url><loc>https://olga-astro.com/fr/astrologie-amour/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://olga-astro.com/love-astrology-reading/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://olga-astro.com/fr/astrologie-amour/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://olga-astro.com/ru/goroskop-lichnoy-zhizni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://olga-astro.com/love-astrology-reading/"/>
   </url>
   <url><loc>https://olga-astro.com/fr/etude-de-theme-natal/</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://olga-astro.com/natal-chart-reading/"/>
@@ -121,7 +133,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://olga-astro.com/natal-chart-reading/"/>
   </url>
   <url><loc>https://olga-astro.com/ru/goroskop-lichnoy-zhizni/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://olga-astro.com/love-astrology-reading/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://olga-astro.com/fr/astrologie-amour/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://olga-astro.com/ru/goroskop-lichnoy-zhizni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://olga-astro.com/love-astrology-reading/"/>
   </url>
   <url><loc>https://olga-astro.com/ru/natalnaya-karta/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://olga-astro.com/natal-chart-reading/"/>
