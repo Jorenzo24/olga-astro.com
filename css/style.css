@@ -254,6 +254,7 @@ p  { max-width: 68ch; }
 .nav__link {
   display: inline-flex; align-items: center; gap: .35rem;
   padding: .55rem .85rem; border-radius: 999px; font-size: .95rem; font-weight: 500;
+  white-space: nowrap;
   color: var(--c-on-dark); transition: color var(--t), background var(--t);
 }
 .nav__link:hover, .nav__link[aria-current="page"] { color: var(--c-white); background: rgba(255,255,255,.07); }
@@ -793,3 +794,92 @@ body.nav-open { overflow: hidden; }
 .note p { color: inherit; }
 .bg-dark .note { border-left-color: var(--c-gold-soft); }
 .bg-dark .note, .bg-dark .note p { color: var(--c-on-dark-soft); }
+
+/* ---------------------------------------------------------------------------
+   20. Hero, full-bleed banner variant (home)
+   The client's own 1920x700 banner from the previous site. It is a wide
+   letterbox, so on phones it runs as a photo band across the top with the copy
+   underneath; from 900px there is room beside Olga (she sits centre right) and
+   the copy moves on top of the photo, left aligned behind a gradient scrim.
+   --------------------------------------------------------------------------- */
+.hero--banner { padding: 0; }
+/* The header is fixed, and Olga's head sits at the very top of the banner, so
+   on phones the photo band starts below the header instead of behind it. */
+.hero--banner .hero__bg {
+  position: relative;
+  margin-top: var(--header-h);
+  height: clamp(190px, 54vw, 320px);
+  overflow: hidden;
+}
+/* <picture> is inline by default, so the image would keep its intrinsic 1920px
+   width and blow the layout out sideways. */
+.hero--banner .hero__bg picture { display: block; width: 100%; height: 100%; }
+.hero--banner .hero__bg img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: 60% center;
+}
+.hero--banner .hero__scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(10, 17, 46, .28) 0%, rgba(10, 17, 46, 0) 30%, rgba(10, 17, 46, 0) 58%, rgba(10, 17, 46, .97) 100%);
+}
+.hero--banner > .container {
+  position: relative; z-index: 2;
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-xl);
+}
+.hero--banner .hero__content { max-width: 34rem; }
+.hero--banner h1 {
+  margin-bottom: .9rem;
+  font-size: clamp(1.95rem, 1.35rem + 2.1vw, 3rem);
+}
+.hero--banner .hero__lead { margin-bottom: 1.6rem; }
+.hero--banner .hero__meta { margin-top: 2rem; gap: 1.3rem; }
+
+@media (min-width: 900px) {
+  /* Copy moves on top of the photo, in the free wall space to Olga's left. */
+  .hero--banner {
+    display: flex; align-items: center;
+    min-height: clamp(480px, 74vh, 660px);
+  }
+  .hero--banner .hero__bg { position: absolute; inset: 0; height: auto; margin-top: 0; }
+  .hero--banner .hero__scrim {
+    background:
+      linear-gradient(to right, rgba(10, 17, 46, .94) 0%, rgba(10, 17, 46, .82) 34%, rgba(10, 17, 46, .28) 56%, rgba(10, 17, 46, .1) 100%),
+      linear-gradient(to bottom, rgba(10, 17, 46, .5), rgba(10, 17, 46, 0) 38%);
+  }
+  .hero--banner > .container {
+    flex: 1 1 100%; min-width: 0;
+    padding-top: calc(var(--header-h) + var(--space-lg));
+    padding-bottom: var(--space-lg);
+  }
+  .hero--banner .hero__content { max-width: 37rem; }
+}
+
+/* ---------------------------------------------------------------------------
+   21. Header breathing room on narrow desktops
+   The RU nav label "Вопрос-ответ" (Olga's own wording, replacing "FAQ") makes
+   the bar wider, so between the nav breakpoint and ~1280px everything in the
+   header tightens a notch rather than pushing the language switcher off-screen.
+   --------------------------------------------------------------------------- */
+@media (min-width: 1000px) and (max-width: 1439px) {
+  .site-header .container { gap: .5rem; }
+  .brand { flex: none; }
+  .brand__name { white-space: nowrap; font-size: 1.35rem; }
+  .brand__tag { display: none; }
+  .nav__list { gap: .1rem; }
+  .nav__link { padding: .5rem .55rem; font-size: .88rem; }
+  .header-cta { padding: .62rem 1.05rem; font-size: .84rem; }
+  .lang-switch { margin-left: 0; }
+  .lang-switch a { padding: .28rem .38rem; font-size: .72rem; }
+}
+/* Between 1000 and 1100px the bar simply cannot hold brand + 6 items + CTA +
+   the language switcher. The CTA is the one that is duplicated elsewhere (hero,
+   every section, mobile drawer), so it yields; the switcher must stay visible. */
+@media (min-width: 1000px) and (max-width: 1099px) {
+  .header-cta { display: none; }
+}
+@media (min-width: 1440px) {
+  .nav__list { gap: .2rem; }
+  .nav__link { padding: .55rem .7rem; }
+}

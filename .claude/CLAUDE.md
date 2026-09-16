@@ -11,7 +11,27 @@ online astrology **consultations** (not mass-market horoscopes). Trilingual
    `<meta name="robots" content="index, follow">` (or delete the tag) at go-live.
 2. **Set the cPanel username** in `.cpanel.yml` — replace `CPANELUSER` in
    `DEPLOYPATH=/home/CPANELUSER/public_html/`.
+   The 301s from the old WordPress URLs are **already written** in `.htaccess`; they do
+   nothing on GitHub Pages and take effect the moment the domain switches over.
 3. Confirm canonical URLs all point to `https://olga-astro.com/...` (they do).
+
+## ⚠️ The OLD site is still live on the production domain
+`https://olga-astro.com/` currently serves Olga's **old WordPress**: Yoast sitemap, 17
+indexed URLs, latin slugs, content **100% Russian** on a `fr-FR` locale. Going live
+overwrites it, so `.htaccess` now carries **301s from every old URL to the matching
+`/ru/` page** (added 2026-09-16). Notes:
+- `/consultation/` is deliberately **not** redirected: the new site already owns that
+  path as the EN "Consultations" page. Its hreflang points at `/ru/konsultatsii/`.
+- The 6 old blog posts (percent-encoded Cyrillic slugs) all 301 to `/ru/stati/`;
+  there are no per-article pages on the new site.
+- The old site shows a flat **200 €** on all 10 consultations, but Olga's 2026-08 copy
+  raised natal to 300 € and forecast to 250 €. **The 200 € is stale, never reuse it.**
+- Two copy-paste bugs on the old site, worth knowing: the block titled
+  «Гороскоп личной жизни» actually contains the **Профориентация** text verbatim, and
+  «Ситуация, требующая разрешения» opens with the natal-chart text. That is why the
+  personal-life consultation effectively never existed.
+- `assets/img/olga-banner.*` **is** the old home banner (`bandeau-Olga-astro.png`,
+  1920x700, byte-for-byte the same picture). It is now the RU home hero.
 
 ## Hosting & deploy
 - VPS Hetzner + cPanel. Deploy path: `/home/CPANELUSER/public_html/`.
@@ -70,8 +90,9 @@ online astrology **consultations** (not mass-market horoscopes). Trilingual
 - Home money keyword: **online astrology consultation**.
 - Per page: unique `<title>`, meta description, `<link rel="canonical">`,
   OG + Twitter tags, a single `<h1>`.
-- JSON-LD on home: `WebSite` + `Person` (Olga) + `Service` list (9 consultations).
-  **FAQPage schema is live on all 9 landings in all 3 languages**, and every
+- JSON-LD on home: `WebSite` + `Person` (Olga) + `Service` list (RU: 10 consultations,
+  fully localised; EN/FR: still 9 and still in English, see open items).
+  **FAQPage schema is live on every landing in all 3 languages** (10 in RU, 9 in EN/FR), and every
   `name`/`text` string is byte-identical to the visible FAQ. Keep it that way: Google
   treats drifted FAQ schema as a violation. Verify with the audit snippet below.
 - `robots.txt` allows all (production-ready); `sitemap.xml` lists every page in
@@ -85,7 +106,7 @@ with **localised slugs** (e.g. `natal-chart-reading/` ↔ `/fr/etude-de-theme-na
 header/mobile **language switcher** (`.lang-switch`).
 - Asset paths stay **relative** and depth-aware: EN interior = `../`, FR/RU home =
   `../`, FR/RU interior = `../../`.
-- The shell of every one of the 45 pages (header/footer/switcher/hreflang/breadcrumb/
+- The shell of every one of the 46 pages (header/footer/switcher/hreflang/breadcrumb/
   depth-aware paths) **already exists and is correct in the page itself.** Editing is
   surgical: change only the `<head>` meta/JSON-LD and the body, never the shell.
 - ⚠️ The old assembler `scratchpad/build_i18n.py` + `scratchpad/i18n/*` fragments were
@@ -106,7 +127,7 @@ header/mobile **language switcher** (`.lang-switch`).
   languages (the old "schema still in EN" TODO is closed). See the open items below for
   what is left on the home pages.
 
-### Landing pages (folder → primary keyword)
+### Landing pages (EN folder → primary keyword)
 - `natal-chart-reading/` → birth/natal chart reading
 - `astrology-forecast-reading/` → astrology forecast reading
 - `synastry-compatibility-reading/` → synastry / compatibility reading
@@ -116,6 +137,39 @@ header/mobile **language switcher** (`.lang-switch`).
 - `medical-astrology-reading/` → medical astrology reading
 - `birth-time-rectification/` → birth time rectification
 - `horary-astrology-reading/` → **electional** astrology (choosing a date) **+ horary**
+
+### ⚠️ RU is now the reference language and has diverged (2026-09-16)
+Olga sent corrections against the `/ru/` URLs. **RU was brought fully in line; EN and FR
+have NOT been touched yet.** Until they are, RU is ahead and the three languages differ
+in slugs, labels, order and one whole page. RU slugs were renamed (site is `noindex`, so
+no redirect debt) and the order is **hers**:
+
+| # | Her name (RU, use it verbatim) | RU slug | EN sibling |
+|---|---|---|---|
+| 1 | Личный гороскоп или натальная карта | `ru/natalnaya-karta/` | natal-chart-reading |
+| 2 | Астрологический прогноз | `ru/astrologicheskiy-prognoz/` | astrology-forecast-reading |
+| 3 | **Гороскоп личной жизни** | `ru/goroskop-lichnoy-zhizni/` | **none yet** |
+| 4 | Синастрия — гороскоп совместимости | `ru/sinastriya-sovmestimost/` | synastry-compatibility-reading |
+| 5 | Профориентация | `ru/proforientatsiya/` | career-astrology-reading |
+| 6 | Детский гороскоп | `ru/detskiy-goroskop/` | children-astrology-reading |
+| 7 | Релокация — астрология переезда | `ru/relokatsiya/` | relocation-astrology-reading |
+| 8 | Гороскоп здоровья | `ru/goroskop-zdorovya/` | medical-astrology-reading |
+| 9 | Ректификация | `ru/rektifikatsiya/` | birth-time-rectification |
+| 10 | Ситуации, требующие разрешения | `ru/razreshenie-situatsii/` | horary-astrology-reading |
+
+**Her vocabulary rule (absolute).** The service is *always* «консультация», never
+«разбор» and never «анализ». Both nouns are now at **zero** across the 16 RU pages, and
+the audit for it is `grep -r "разбор\|анализ" ru/`. Mind the gender flip when editing:
+разбор is masculine, консультация feminine, so adjectives, participles and anaphoric
+pronouns all move (`этот разбор остаётся содержательным` → `эта консультация остаётся
+содержательной`). The **verb** разобраться («разобраться в себе») is fine and stays.
+EN/FR still say "reading" / « étude » everywhere: that is the pending half of this job.
+
+Other RU-only changes from the same round: the FAQ section is renamed **«Вопрос-ответ»**
+(her old site's own wording), `ru/voprosy-otvety/` was a **stub** and is now the full
+4-question Q&A ported from the old site plus FAQPage schema, `ru/ob-olge/` publishes her
+bio **unsplit** (one continuous text, Socrates epigraph restored, no invented H2s), and
+the RU home uses the **full-bleed banner hero** (`.hero--banner`, css §20).
   ⚠️ This page pivoted (2026-08-10). Olga's copy for this URL is about *Электив*,
   choosing the date of an event. The slug, hreflang, sitemap and internal links were
   deliberately KEPT; the page now leads on electional and keeps the whole horary body
@@ -124,7 +178,7 @@ header/mobile **language switcher** (`.lang-switch`).
   "Электив и хорарная астрология" / "Electional & Horary Astrology" /
   « Astrologie électionnelle et horaire ».
 
-**Complete** (full EN + transcreated FR/RU): **all 9 landings** plus home, about and
+**Complete** (full EN + transcreated FR/RU): **9 landings** plus home, about and
 contact. Each landing has its own thematic hero (`<key>-hero.*`) and cosmos band
 (`<key>-cosmos.*`) in `assets/img/` (Unsplash/Pexels, free licence). No STUBS remain
 except the Formspree placeholder on the contact pages.
@@ -159,34 +213,47 @@ Sections she gave no copy for are **omitted, never invented**. Rules that follow
 Give each landing its **own thematic hero image** (downloaded, webp+jpg, portrait) — the
 home chart wheel is reserved for the home page. Then localise FR + RU via the flow above.
 
-## 📋 Open items (as of 2026-08-10, after the client rewrite)
+## 📋 Open items (as of 2026-09-16, after Olga's corrections round)
 
-**Waiting on Olga — missing prices/durations.** She priced only 2 of the 9
-consultations. Nothing was invented, so these landings simply show no `.facts` band.
-Ask her for, then add (+ a matching `offers` block in the Service JSON-LD ×3 languages):
+**#1 — Propagate the RU round to EN and FR.** This is the big one. RU is the reference
+now; EN/FR still carry the old labels, the old order, "reading"/« étude » vocabulary,
+and no personal-life page. Needed per language: rename the visible labels to her names,
+reorder to her 10, drop reading/étude in favour of consultation/consultation, and
+transcreate `ru/goroskop-lichnoy-zhizni/` (its RU page has no `hreflang` alternates and
+its language switcher falls back to the EN/FR consultations index until the siblings
+exist). Whether EN/FR slugs get renamed too is Joseph's call, same as RU.
+
+**#2 — Waiting on Olga: prices and durations.** Still only 2 of 10 priced. Nothing
+invented, those landings show no `.facts` band. The old site's flat 200 € is stale.
+Ask, then add (+ a matching `offers` block in the Service JSON-LD, each language):
 
 | Consultation | Has | Missing |
 |---|---|---|
-| Relocation, career, children, medical | duration 1 h | **price** |
-| Synastry, rectification, electional | — | **price + duration** |
+| Личной жизни, relocation, career, children, medical | duration 1 h | **price** |
+| Synastry, rectification, "situations requiring resolution" | — | **price + duration** |
 
-**Known gaps, all pre-existing, none introduced by the rewrite:**
-- The 3 **home** pages have a visible 4-item FAQ with **no FAQPage schema**, and still
-  carry some EN strings in their JSON-LD. Adding FAQPage there is the cheapest remaining
-  rich-result win.
-- 9 pages have meta descriptions over ~158 chars (Google truncates them). None are pages
-  Olga rewrote: `fr/articles`, `fr/consultations`, `fr/contact`, `fr/faq`, `fr/index`,
-  `ru/konsultatsii`, `ru/kontakty`, `ru/stati`, `ru/voprosy-otvety`.
+**#3 — Placeholder images on the new RU landing.** `assets/img/lichnaya-zhizn-hero.*`
+and `lichnaya-zhizn-cosmos.*` are copies of the synastry visuals: Unsplash and Pexels
+both block downloads from this environment. The filenames are final, so dropping the
+real photos in at those paths needs **no HTML change**.
+
+**#4 — Confirm with Olga: "Ситуации, требующие разрешения".** Her September list names
+this consultation that way and does not mention «Электив» at all, yet in August she
+pivoted this very page *to* electional (choosing a date). The page now leads with her
+name and keeps **both** the electional and horary bodies. Worth one question to her.
+
+**Known gaps, pre-existing:**
+- The 3 **home** pages have a visible 4-item accordion with **no FAQPage schema**.
+  RU's home JSON-LD is now fully Russian with all 10 services; **EN and FR home JSON-LD
+  are still English-only and list 9**. Note the home accordion headings are topic labels,
+  not questions, so FAQPage there would need genuine Q&A first.
+- Meta descriptions over ~158 chars on: `fr/articles`, `fr/consultations`, `fr/contact`,
+  `fr/faq`, `fr/index`, `ru/stati`. (`ru/konsultatsii`, `ru/kontakty` and
+  `ru/voprosy-otvety` were fixed in this round.)
 - Contact form still on the Formspree placeholder (see Git section).
-- RU copy is Olga's own words now, so it no longer needs a native review pass. FR and EN
-  are transcreations of her Russian and read native.
 
-**Decision left open:** nav/dropdown/footer labels still use the keyword-rich service
-names (`Карьерная астрология`, `Медицинская астрология`, `Астрокартография`) while her
-H1s lead with her own wording (`Профориентация`, `Гороскоп здоровья`, `Релокация`). Kept
-that way deliberately to preserve internal anchor text. Only the horary→electional label
-was changed, because there the *subject* changed, not just the synonym. Joseph may still
-want to align the rest: it is a sitewide sed on anchor text (`>Label</a>`) across 46 files.
+**Resolved this round:** the nav/footer label decision (RU now uses her names
+everywhere, EN/FR pending), the `ru/voprosy-otvety` stub, and the RU home JSON-LD.
 
 ## Audit snippet (run before any commit that touches page bodies)
 
@@ -223,7 +290,7 @@ Also check internal links resolve and no `?v=` stamp is stale.
 `css/style.css` or `js/main.js`, **bump the version query string** `?v=AAAAMMJJx`
 (date + letter, e.g. `?v=20260618a` → `20260618b`) on EVERY `<link>`/`<script>`
 that references them, across **all** pages — otherwise returning visitors get
-stale assets for up to a month. Current version stamp: **v=20260810a**.
+stale assets for up to a month. Current version stamp: **v=20260916a**.
 
 ## Theming gotcha (important)
 Do NOT put `class="bg-dark"` on `<body>`. The `.bg-dark h2/h3/p/li` rules recolor

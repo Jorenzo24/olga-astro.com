@@ -18,6 +18,43 @@ DirectoryIndex index.html
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
+# --- 301 de l'ancien site WordPress (contenu 100% russe) ---------------------
+# olga-astro.com tournait sous WordPress avec des slugs latins et un contenu
+# uniquement russe. Ces URL sont indexées : elles pointent vers les pages /ru/
+# correspondantes du nouveau site. Ajouté le 2026-09-16.
+# NB : /consultation/ n'est PAS redirigée, elle est désormais la page
+# « Consultations » en anglais du nouveau site (hreflang renvoie vers /ru/).
+<IfModule mod_rewrite.c>
+    RewriteRule ^about-me/?$                                    /ru/ob-olge/ [L,R=301]
+    RewriteRule ^question-answer/?$                             /ru/voprosy-otvety/ [L,R=301]
+    RewriteRule ^contact/?$                                     /ru/kontakty/ [L,R=301]
+    RewriteRule ^news-horoscope/?$                              /ru/stati/ [L,R=301]
+    RewriteRule ^information-on-consultations/?$                /ru/konsultatsii/ [L,R=301]
+
+    RewriteRule ^natal-astrology-personal-horoscope/?$          /ru/natalnaya-karta/ [L,R=301]
+    RewriteRule ^astrological-forecast-annual-horoscope/?$      /ru/astrologicheskiy-prognoz/ [L,R=301]
+    RewriteRule ^synastry-compatibility-horoscope/?$            /ru/sinastriya-sovmestimost/ [L,R=301]
+    RewriteRule ^career-guidance/?$                             /ru/proforientatsiya/ [L,R=301]
+    RewriteRule ^child-horoscope/?$                             /ru/detskiy-goroskop/ [L,R=301]
+    RewriteRule ^relocation-horoscope-moving/?$                 /ru/relokatsiya/ [L,R=301]
+    RewriteRule ^health-horoscope/?$                            /ru/goroskop-zdorovya/ [L,R=301]
+    RewriteRule ^horoscope-rectification-birth-time-calculation/?$ /ru/rektifikatsiya/ [L,R=301]
+    RewriteRule ^horoscope-correction-birth-time-calculation/?$    /ru/rektifikatsiya/ [L,R=301]
+    RewriteRule ^situation-requiring-resolution/?$              /ru/razreshenie-situatsii/ [L,R=301]
+
+    # Les 6 anciens articles (slugs cyrilliques encodés) : pas d'équivalent
+    # unitaire sur le nouveau site, ils pointent vers l'index des articles.
+    RewriteRule ^%d0%bd%d0%b5%d0%bf%d1%82%d1%83%d0%bd            /ru/stati/ [L,R=301,NE]
+    RewriteRule ^%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%bb%d0%be      /ru/stati/ [L,R=301,NE]
+    RewriteRule ^%d1%81%d0%be%d0%b5%d0%b4%d0%b8%d0%bd            /ru/stati/ [L,R=301,NE]
+    RewriteRule ^%d1%83%d1%80%d0%b0%d0%bd                        /ru/stati/ [L,R=301,NE]
+    RewriteRule ^%d0%bd%d0%be%d0%b2%d1%8b%d0%b9                  /ru/stati/ [L,R=301,NE]
+    RewriteRule ^%d0%be%d0%ba%d0%be%d0%bd%d1%87                  /ru/stati/ [L,R=301,NE]
+
+    # Sitemaps Yoast de l'ancien site
+    RewriteRule ^(sitemap_index|page-sitemap|post-sitemap|category-sitemap|author-sitemap)\.xml$ /sitemap.xml [L,R=301]
+</IfModule>
+
 # --- Custom error pages ------------------------------------------------------
 ErrorDocument 404 /404.html
 
