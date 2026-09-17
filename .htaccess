@@ -55,6 +55,31 @@ DirectoryIndex index.html
     RewriteRule ^(sitemap_index|page-sitemap|post-sitemap|category-sitemap|author-sitemap)\.xml$ /sitemap.xml [L,R=301]
 </IfModule>
 
+# --- 301 des anciens slugs EN/FR (renommés le 2026-09-17) -------------------
+# Olga a indiqué ne pas proposer les disciplines qui servaient de noms
+# (astrocartographie, astrologie médicale, électionnelle/horaire). Les libellés
+# ET les URL portent désormais SES noms. Le site était en noindex, donc rien
+# n'était indexé, mais des liens de prévisualisation ont pu circuler.
+<IfModule mod_rewrite.c>
+    RewriteRule ^career-astrology-reading/?$    /career-guidance/ [L,R=301]
+    RewriteRule ^children-astrology-reading/?$  /childrens-horoscope/ [L,R=301]
+    RewriteRule ^medical-astrology-reading/?$   /health-horoscope/ [L,R=301]
+    RewriteRule ^horary-astrology-reading/?$    /situations-to-resolve/ [L,R=301]
+
+    RewriteRule ^fr/astrologie-carriere/?$      /fr/orientation-professionnelle/ [L,R=301]
+    RewriteRule ^fr/astrologie-enfant/?$        /fr/horoscope-enfant/ [L,R=301]
+    RewriteRule ^fr/astrologie-medicale/?$      /fr/horoscope-sante/ [L,R=301]
+    RewriteRule ^fr/astrologie-horaire/?$       /fr/situations-a-trancher/ [L,R=301]
+
+    # anciens slugs RU, renommés le 2026-09-16
+    RewriteRule ^ru/kariernaya-astrologiya/?$    /ru/proforientatsiya/ [L,R=301]
+    RewriteRule ^ru/detskaya-astrologiya/?$      /ru/detskiy-goroskop/ [L,R=301]
+    RewriteRule ^ru/astrokartografiya/?$         /ru/relokatsiya/ [L,R=301]
+    RewriteRule ^ru/meditsinskaya-astrologiya/?$ /ru/goroskop-zdorovya/ [L,R=301]
+    RewriteRule ^ru/rektifikatsiya-rozhdeniya/?$ /ru/rektifikatsiya/ [L,R=301]
+    RewriteRule ^ru/horarnaya-astrologiya/?$     /ru/razreshenie-situatsii/ [L,R=301]
+</IfModule>
+
 # --- Custom error pages ------------------------------------------------------
 ErrorDocument 404 /404.html
 

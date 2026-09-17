@@ -133,27 +133,27 @@ header/mobile **language switcher** (`.lang-switch`).
   languages, and the home `Service` lists carry all 10. Only the FR home JSON-LD strings
   are still English, see open items.
 
-### Landing pages (EN folder → primary keyword)
-In Olga's order, the same order the nav, footers and card grids use in all 3 languages:
+### Landing pages, all 3 languages
+In Olga's order, the same order the nav, footers and card grids use everywhere. Slugs and
+labels are both hers since 2026-09-17.
 
-1. `natal-chart-reading/` → birth/natal chart reading
-2. `astrology-forecast-reading/` → astrology forecast reading
-3. `love-astrology-reading/` → love astrology reading (added 2026-09-16)
-4. `synastry-compatibility-reading/` → synastry / compatibility reading
-5. `career-astrology-reading/` → career astrology reading
-6. `children-astrology-reading/` → children's astrology reading
-7. `relocation-astrology-reading/` → relocation astrology / astrocartography
-8. `medical-astrology-reading/` → medical astrology reading
-9. `birth-time-rectification/` → birth time rectification
-10. `horary-astrology-reading/` → **electional** astrology (choosing a date) **+ horary**
+| # | EN slug | FR slug | RU slug |
+|---|---|---|---|
+| 1 | `natal-chart-reading/` | `fr/etude-de-theme-natal/` | `ru/natalnaya-karta/` |
+| 2 | `astrology-forecast-reading/` | `fr/previsions-astrologiques/` | `ru/astrologicheskiy-prognoz/` |
+| 3 | `love-astrology-reading/` | `fr/astrologie-amour/` | `ru/goroskop-lichnoy-zhizni/` |
+| 4 | `synastry-compatibility-reading/` | `fr/synastrie-compatibilite/` | `ru/sinastriya-sovmestimost/` |
+| 5 | `career-guidance/` | `fr/orientation-professionnelle/` | `ru/proforientatsiya/` |
+| 6 | `childrens-horoscope/` | `fr/horoscope-enfant/` | `ru/detskiy-goroskop/` |
+| 7 | `relocation-astrology-reading/` | `fr/astrologie-relocalisation/` | `ru/relokatsiya/` |
+| 8 | `health-horoscope/` | `fr/horoscope-sante/` | `ru/goroskop-zdorovya/` |
+| 9 | `birth-time-rectification/` | `fr/rectification-heure-naissance/` | `ru/rektifikatsiya/` |
+| 10 | `situations-to-resolve/` | `fr/situations-a-trancher/` | `ru/razreshenie-situatsii/` |
 
-    ⚠️ This page pivoted (2026-08-10). Olga's copy for this URL is about *Электив*,
-    choosing the date of an event. The slug, hreflang, sitemap and internal links were
-    deliberately KEPT; the page leads on electional and keeps the whole horary body
-    below, bridged by her heading "Ситуация, требующая разрешения" / "A situation that
-    needs resolving" / « Une situation à trancher ». EN/FR nav and card labels read
-    "Electional & Horary Astrology" / « Astrologie électionnelle et horaire »; the RU H1
-    and labels now use her own name for it, «Ситуации, требующие разрешения» (open #2).
+The electional / horary page (#10) pivoted on 2026-08-10: Olga's copy is about choosing
+the date of an event. Both bodies, electional and horary, are on the page. Since
+2026-09-17 it is named with HER words everywhere; the technique names survive only in
+body prose, as explanation. See open item #2.
 
 ### ⚠️ Her service names are law, in every language (2026-09-17)
 When Olga wrote "I do not offer the consultations listed", she was not objecting to
@@ -180,10 +180,13 @@ Two things that are NOT covered by this rule and must not be "fixed":
   "does not replace a doctor", "a complement to professional medical care"). Those use
   the word "medical" legitimately. Only the phrase naming the discipline was removed.
 
-⚠️ The **slugs still carry the old terms** (`medical-astrology-reading/`,
-`horary-astrology-reading/`, `fr/astrologie-medicale/`, `fr/astrologie-horaire/`…). Only
-the RU folders were renamed. Open question for Joseph, the site is still `noindex` so it
-would be free to do now.
+**The slugs were renamed too** (2026-09-17, Joseph's call), so no URL contradicts the
+label any more, and `assets/img/medical-*` and `horary-*` became `health-*` and
+`situations-*` since `og:image` is a public URL. `.htaccess` carries 301s from every old
+path, EN, FR and RU. Four EN/FR slugs were deliberately **kept**, because they were never
+a false claim: `natal-chart-reading`, `astrology-forecast-reading`,
+`synastry-compatibility-reading`, `relocation-astrology-reading` (and their FR twins) all
+match her own wording already.
 
 ### ⚠️ RU vocabulary diverges from EN/FR, deliberately (2026-09-16)
 Olga's corrections were written against the `/ru/` URLs. **Her "consultation only" rule
