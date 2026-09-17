@@ -272,6 +272,18 @@ template in a single pass, which is why their structure is identical line for li
 pattern for the next pair: build both languages from one script rather than hand-copying,
 then let the copy differ.
 
+## The booking CTA (2026-09-17)
+Every button that leads to the contact page says **«Оставить заявку» / "Leave a request" /
+« Laisser une demande »**, 73 per language. Her instruction, and it is not cosmetic: you
+do not book a slot, you file a request, and she runs the consultation only after the
+questionnaire comes back. The contact pages' H1 and title match. Two CTAs were left
+alone because they are not the booking action: the gift certificate and "Contact Olga".
+
+Consequence in the CSS: the old label was long enough to push the language switcher off
+screen between 1000 and 1100px, which needed a rule hiding the header CTA there. The new
+label is short, the rule is gone, and the CTA shows at every desktop width again. If the
+label ever gets longer, re-check §21.
+
 ## Contact address (get this right)
 The only real address is **info@olga-astro.com**, confirmed on her live WordPress. The
 site had been shipping two invented ones, `hello@` on the contact pages and `contact@`
@@ -319,16 +331,13 @@ this consultation that way and does not mention «Электив» at all, yet i
 pivoted this very page *to* electional (choosing a date). The page now leads with her
 name and keeps **both** the electional and horary bodies. Worth one question to her.
 
-**#3 — The booking button has to be renamed, and the funnel with it.** Her words
-(2026-09-17): replace "Prendre rendez-vous" with **«Оставить заявку»** (= "leave a
-request"), *because the person fills in a questionnaire first and only then does she run
-the consultation*. The Russian word for that questionnaire is **анкета**. Unknown, and
-blocking: is the анкета our own contact form, or a separate document she sends
-afterwards? Her old site's funnel was button → a «менеджер» (manager) contacts you →
-sends the анкета → payment → consultation. The FAQ answer #4 already describes that
-funnel in all 3 languages, so the wording is in place; **the buttons themselves are NOT
-renamed yet** and the contact form is still the Formspree placeholder. Also needs the
-EN/FR label ("Leave a request" / « Laisser une demande »?) confirmed.
+**#3 — The questionnaire (анкета) behind the booking flow.** Joseph is asking Olga for
+the document. Her flow, now described identically on the home page and in the FAQ of all
+three languages: you pick a consultation, you click **Leave a request**, a manager sends
+you the questionnaire and agrees the date and format, you pay, the consultation happens.
+What is still missing is the questionnaire itself, and whether it is our own contact form
+or a document she sends afterwards. The contact form is still the Formspree placeholder,
+so nothing actually reaches anyone yet.
 
 **#4 — The three home pages no longer share a hero.** Olga asked for the old site's
 full-bleed banner and it was built for RU (`.hero--banner`, css §20). EN and FR still run
@@ -419,7 +428,7 @@ Also check internal links resolve and no `?v=` stamp is stale.
 `css/style.css` or `js/main.js`, **bump the version query string** `?v=AAAAMMJJx`
 (date + letter, e.g. `?v=20260618a` → `20260618b`) on EVERY `<link>`/`<script>`
 that references them, across **all** pages — otherwise returning visitors get
-stale assets for up to a month. Current version stamp: **v=20260917a**.
+stale assets for up to a month. Current version stamp: **v=20260917b**.
 
 ## Theming gotcha (important)
 Do NOT put `class="bg-dark"` on `<body>`. The `.bg-dark h2/h3/p/li` rules recolor

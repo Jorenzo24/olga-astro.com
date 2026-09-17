@@ -882,12 +882,10 @@ body.nav-open { overflow: hidden; }
   .lang-switch { margin-left: 0; }
   .lang-switch a { padding: .28rem .38rem; font-size: .72rem; }
 }
-/* Between 1000 and 1100px the bar simply cannot hold brand + 6 items + CTA +
-   the language switcher. The CTA is the one that is duplicated elsewhere (hero,
-   every section, mobile drawer), so it yields; the switcher must stay visible. */
-@media (min-width: 1000px) and (max-width: 1099px) {
-  .header-cta { display: none; }
-}
+/* The CTA label used to be long ("Book a consultation"), and between 1000 and
+   1100px it pushed the language switcher off screen. Olga's own wording,
+   "Leave a request", is short enough that everything fits again, so the CTA is
+   no longer hidden. Re-check this if the label ever gets longer. */
 @media (min-width: 1440px) {
   .nav__list { gap: .2rem; }
   .nav__link { padding: .55rem .7rem; }
