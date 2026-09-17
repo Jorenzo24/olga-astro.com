@@ -239,6 +239,20 @@ template in a single pass, which is why their structure is identical line for li
 pattern for the next pair: build both languages from one script rather than hand-copying,
 then let the copy differ.
 
+## Contact address (get this right)
+The only real address is **info@olga-astro.com**, confirmed on her live WordPress. The
+site had been shipping two invented ones, `hello@` on the contact pages and `contact@`
+in the privacy policy; both were corrected on 2026-09-17. Do not invent another.
+
+## Legal pages (added 2026-09-17)
+`privacy-policy/` · `fr/politique-de-confidentialite/` · `ru/politika-konfidentsialnosti/`
+— 13 sections, ported from her old WordPress (Russian original, transcreated to EN/FR),
+linked from the legal row of every footer and listed in the sitemap with hreflang.
+Publisher of record: **Seo-Perf Ltd (Ireland)**, data controller Olga Matyushkina.
+It is a legal document: port it, do not rewrite it, and have a human validate the EN/FR
+translations. The EN page deliberately sits at `/privacy-policy/`, the same path the old
+WordPress used, so that URL keeps working with no redirect.
+
 ## Home consultations section: three tiers (2026-09-16)
 Ten consultations broke the old "featured + two rows of four" (it left an orphan row), so
 the section on all three home pages now reads: the **featured** natal card, then **three
@@ -251,32 +265,58 @@ stay UNpositioned, same stretched-link rule as `.reading`.
 Photos for the love landing: `assets/img/love-hero.*` (900x1020) and `love-cosmos.*`
 (1600x900), both cropped from the source Joseph supplied; shared by the three languages.
 
-## 📋 Open items (as of 2026-09-16, after Olga's corrections round)
+## 📋 Open items (as of 2026-09-17)
 
-**#1 — Waiting on Olga: prices and durations.** Still only 2 of 10 priced. Nothing
-invented, those landings show no `.facts` band. The old site's flat 200 € is stale.
-
-Ask, then add (+ a matching `offers` block in the Service JSON-LD, each language):
+**#1 — Waiting on Olga: 2 prices and 3 durations.** She priced 8 of 10 on 2026-09-17
+(love 230, synastry 200, career 200, children 180, relocation 150, health 200; natal 300
+and forecast 250 were already known). All 8 are live in the 3 languages with a matching
+`offers` block. Still missing, nothing invented, no `.facts` cell shown:
 
 | Consultation | Has | Missing |
 |---|---|---|
-| Личной жизни, relocation, career, children, medical | duration 1 h | **price** |
-| Synastry, rectification, "situations requiring resolution" | — | **price + duration** |
+| Synastry | price 200 € | **duration** |
+| Rectification | — | **price + duration** |
+| "Situations requiring resolution" | — | **price + duration** |
+
+Likely explanation to confirm with her: rectification is not sold on its own (it is the
+prerequisite step when the birth time is unknown) and "situations" is priced case by case.
 
 **#2 — Confirm with Olga: "Ситуации, требующие разрешения".** Her September list names
 this consultation that way and does not mention «Электив» at all, yet in August she
 pivoted this very page *to* electional (choosing a date). The page now leads with her
 name and keeps **both** the electional and horary bodies. Worth one question to her.
 
-**#3 — The three home pages no longer share a hero.** Olga asked for the old site's
+**#3 — The booking button has to be renamed, and the funnel with it.** Her words
+(2026-09-17): replace "Prendre rendez-vous" with **«Оставить заявку»** (= "leave a
+request"), *because the person fills in a questionnaire first and only then does she run
+the consultation*. The Russian word for that questionnaire is **анкета**. Unknown, and
+blocking: is the анкета our own contact form, or a separate document she sends
+afterwards? Her old site's funnel was button → a «менеджер» (manager) contacts you →
+sends the анкета → payment → consultation. The FAQ answer #4 already describes that
+funnel in all 3 languages, so the wording is in place; **the buttons themselves are NOT
+renamed yet** and the contact form is still the Formspree placeholder. Also needs the
+EN/FR label ("Leave a request" / « Laisser une demande »?) confirmed.
+
+**#4 — The three home pages no longer share a hero.** Olga asked for the old site's
 full-bleed banner and it was built for RU (`.hero--banner`, css §20). EN and FR still run
 the older split hero with `olga-portrait`. Either port the banner to them or decide the
 homes are allowed to differ; right now it is an accident of scope, not a decision.
+
+**#5 — The cookie section of the privacy policy describes the OLD stack.** The text was
+ported faithfully from her WordPress, and it still talks about a cookie banner, a "Manage
+Cookies" button, `wp_session`, `seopress-user-consent` and Google Analytics. **The new
+site is static and sets no cookies at all.** Publishing a cookie policy for cookies that
+do not exist is a GDPR accuracy problem, not a copy problem. Decide before go-live:
+either add the analytics/banner it describes, or cut that section down to the truth.
 
 **Known gaps, pre-existing:**
 - The 3 **home** pages have a visible 4-item accordion with **no FAQPage schema**. Note
   those accordion headings are topic labels, not questions, so FAQPage there would need
   genuine Q&A written first, it is not a copy-paste job.
+- `articles/`, `fr/articles/` and `ru/stati/` are still **empty stubs**. This is where the
+  editorial content belongs (the "satellite pages" idea is really the 10 consultation
+  landings, which already exist and are already interlinked; the Articles section is the
+  place for the horoscope-shaped queries Olga does not want on her service pages).
 - The **FR home JSON-LD strings are still in English** (`WebSite` description, `Person`
   description, `serviceType`). RU is fully localised, EN is correct by definition.
 - Meta descriptions over 158 chars (Google truncates) on 6 pages: `fr/articles` 197,
@@ -293,11 +333,23 @@ for p in sorted(glob.glob('**/index.html',recursive=True)):
         print(p.replace('/index.html',''), len(html.unescape(m.group(1))))
 PY
 ```
-- Contact form still on the Formspree placeholder (see Git section).
+- Contact form still on the Formspree placeholder (see Git section), and its 3 pages are
+  the last stubs on the site.
 
-**Resolved:** the nav/footer label decision (RU = her names, EN/FR = keyword labels, by
-Joseph's arbitration), the `ru/voprosy-otvety` stub, the RU home JSON-LD, the love
-consultation in all three languages, and the home consultations grid.
+**Resolved 2026-09-17:** 8 of 10 prices live with `offers`; the FAQ pages in all 3
+languages rebuilt from her old site, with questions 3 and 4 back as lists the way she
+asked (`.accordion__panel-inner ul/ol`, css §10) and **all 33 FAQPage blocks resynced
+byte-for-byte from the visible DOM**; the privacy policy published in 3 languages; the
+real contact address restored; and the home lightened.
+
+**The home repetition complaint, settled with numbers.** She wrote "why mention them 40
+times?" — the RU home listed the 10 consultations **48 times across 5 blocks** (dropdown,
+mobile menu, hero prose, cards, footer). She was right, and two of those blocks had just
+been *enlarged* by us. Removing the hero enumeration and cutting the footer back to 5
+brings it to **35 across 4 blocks**, and costs nothing in ranking: when a page links
+several times to the same URL, only the first link counts for anchor text, so the 5
+blocks were already worth about 1. Her greeting sentence now sits where the list was.
+Do not re-add enumerations to the home.
 
 ## Audit snippet (run before any commit that touches page bodies)
 
@@ -334,7 +386,7 @@ Also check internal links resolve and no `?v=` stamp is stale.
 `css/style.css` or `js/main.js`, **bump the version query string** `?v=AAAAMMJJx`
 (date + letter, e.g. `?v=20260618a` → `20260618b`) on EVERY `<link>`/`<script>`
 that references them, across **all** pages — otherwise returning visitors get
-stale assets for up to a month. Current version stamp: **v=20260916b**.
+stale assets for up to a month. Current version stamp: **v=20260917a**.
 
 ## Theming gotcha (important)
 Do NOT put `class="bg-dark"` on `<body>`. The `.bg-dark h2/h3/p/li` rules recolor

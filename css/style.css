@@ -590,6 +590,15 @@ body.nav-open { overflow: hidden; }
 .bg-dark .accordion__panel-inner p, .bg-dark .accordion__panel-inner li { color: var(--c-on-dark-soft); }
 .accordion__panel-inner h4 { color: var(--c-gold-deep); font-size: 1.1rem; margin-top: 1.4rem; }
 .bg-dark .accordion__panel-inner h4 { color: var(--c-gold-soft); }
+/* ul/ol are reset globally, so answers that are lists need their markers back.
+   Olga asked for the "how does it work" / "how to book" answers to stay lists,
+   the way they are on her previous site. */
+.accordion__panel-inner ul,
+.accordion__panel-inner ol { display: grid; gap: .55rem; padding-left: 1.35rem; }
+.accordion__panel-inner ul { list-style: disc; }
+.accordion__panel-inner ol { list-style: decimal; }
+.accordion__panel-inner li { padding-left: .25rem; }
+.accordion__panel-inner li::marker { color: var(--c-gold); }
 /* No-JS / no-CSS-anim fallback: keep all content visible & crawlable */
 .no-js .accordion__panel { max-height: none; }
 

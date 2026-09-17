@@ -288,4 +288,22 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://olga-astro.com/ru/razreshenie-situatsii/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://olga-astro.com/horary-astrology-reading/"/>
   </url>
+  <url><loc>https://olga-astro.com/privacy-policy/</loc><lastmod>2026-09-17</lastmod><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://olga-astro.com/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://olga-astro.com/fr/politique-de-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://olga-astro.com/ru/politika-konfidentsialnosti/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://olga-astro.com/privacy-policy/"/>
+  </url>
+  <url><loc>https://olga-astro.com/fr/politique-de-confidentialite/</loc><lastmod>2026-09-17</lastmod><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://olga-astro.com/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://olga-astro.com/fr/politique-de-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://olga-astro.com/ru/politika-konfidentsialnosti/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://olga-astro.com/privacy-policy/"/>
+  </url>
+  <url><loc>https://olga-astro.com/ru/politika-konfidentsialnosti/</loc><lastmod>2026-09-17</lastmod><changefreq>yearly</changefreq><priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://olga-astro.com/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://olga-astro.com/fr/politique-de-confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://olga-astro.com/ru/politika-konfidentsialnosti/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://olga-astro.com/privacy-policy/"/>
+  </url>
 </urlset>
