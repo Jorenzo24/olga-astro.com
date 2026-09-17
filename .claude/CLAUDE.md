@@ -155,6 +155,36 @@ In Olga's order, the same order the nav, footers and card grids use in all 3 lan
     "Electional & Horary Astrology" / « Astrologie électionnelle et horaire »; the RU H1
     and labels now use her own name for it, «Ситуации, требующие разрешения» (open #2).
 
+### ⚠️ Her service names are law, in every language (2026-09-17)
+When Olga wrote "I do not offer the consultations listed", she was not objecting to
+style. Five of the nine labels named astrological **disciplines**, not the products she
+sells, and three of those were claims about a practice she does not have:
+
+| What the site said | What it means | What she actually sells |
+|---|---|---|
+| Астрокартография / Astrocartography | a named technique, relocated charts drawn on a world map | Релокация, the astrology of moving |
+| Медицинская астрология / Medical astrology | implies diagnosing illness | Гороскоп здоровья, a health horoscope |
+| Электив, хорарная астрология | two technical terms | Ситуации, требующие разрешения |
+| Карьерная астрология | astrology of careers | Профориентация, career guidance |
+| Детская астрология | astrology of children | Детский гороскоп |
+
+**Joseph's ruling: use her name everywhere, in all three languages, and accept the SEO
+cost, "especially for anything medical".** A false claim about a practitioner's services
+is not a keyword trade-off, and a health claim carries EU liability. Applied 2026-09-17.
+
+Two things that are NOT covered by this rule and must not be "fixed":
+- The technique name may stay in the **body prose as explanation** ("choosing the most
+  favourable date is called electional astrology" is a true sentence). What is banned is
+  the technique as the **label**: H1, nav, cards, breadcrumb, JSON-LD `name`.
+- The **medical-safety disclaimers stay untouched and unweakened** ("not a diagnosis",
+  "does not replace a doctor", "a complement to professional medical care"). Those use
+  the word "medical" legitimately. Only the phrase naming the discipline was removed.
+
+⚠️ The **slugs still carry the old terms** (`medical-astrology-reading/`,
+`horary-astrology-reading/`, `fr/astrologie-medicale/`, `fr/astrologie-horaire/`…). Only
+the RU folders were renamed. Open question for Joseph, the site is still `noindex` so it
+would be free to do now.
+
 ### ⚠️ RU vocabulary diverges from EN/FR, deliberately (2026-09-16)
 Olga's corrections were written against the `/ru/` URLs. **Her "consultation only" rule
 applies to Russian ONLY.** Joseph's arbitration: EN and FR keep `reading` / « étude »,
