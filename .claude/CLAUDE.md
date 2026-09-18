@@ -44,7 +44,9 @@ overwrites it, so `.htaccess` now carries **301s from every old URL to the match
   never root-absolute. Do not introduce `/css/...` style paths.
 
 ## Stack & conventions
-- Vanilla HTML5 + CSS + minimal JS. No build step, no framework.
+- Vanilla HTML5 + CSS + minimal JS. No build step, no framework. **One PHP file**,
+  `send.php`, receives the contact form; everything else is static. `vendor/phpmailer/`
+  is vendored on purpose, there is no composer step.
 - **Multi-page, clean URLs**: each page is a folder with `index.html`
   (e.g. `/natal-chart-reading/`). All interior pages live one level deep, so they
   reference shared assets with `../css/style.css`, `../js/main.js`, `../assets/…`
@@ -113,7 +115,7 @@ with **localised slugs** (e.g. `natal-chart-reading/` ↔ `/fr/etude-de-theme-na
 header/mobile **language switcher** (`.lang-switch`).
 - Asset paths stay **relative** and depth-aware: EN interior = `../`, FR/RU home =
   `../`, FR/RU interior = `../../`.
-- The shell of every one of the 48 pages (header/footer/switcher/hreflang/breadcrumb/
+- The shell of every one of the 51 pages (header/footer/switcher/hreflang/breadcrumb/
   depth-aware paths) **already exists and is correct in the page itself.** Editing is
   surgical: change only the `<head>` meta/JSON-LD and the body, never the shell.
 - ⚠️ The old assembler `scratchpad/build_i18n.py` + `scratchpad/i18n/*` fragments were
@@ -381,7 +383,7 @@ stay UNpositioned, same stretched-link rule as `.reading`.
 Photos for the love landing: `assets/img/love-hero.*` (900x1020) and `love-cosmos.*`
 (1600x900), both cropped from the source Joseph supplied; shared by the three languages.
 
-## 📋 Open items (as of 2026-09-17)
+## 📋 Open items (as of 2026-09-18)
 
 **#1 — Waiting on Olga: 2 prices and 3 durations.** She priced 8 of 10 on 2026-09-17
 (love 230, synastry 200, career 200, children 180, relocation 150, health 200; natal 300
@@ -410,12 +412,12 @@ What is still missing is the questionnaire itself, and whether it is our own con
 or a document she sends afterwards. The form itself now works (see below), it just does
 not yet carry a questionnaire.
 
-**#4 — The cookie section of the privacy policy describes the OLD stack.** The text was
-ported faithfully from her WordPress, and it still talks about a cookie banner, a "Manage
-Cookies" button, `wp_session`, `seopress-user-consent` and Google Analytics. **The new
-site is static and sets no cookies at all.** Publishing a cookie policy for cookies that
-do not exist is a GDPR accuracy problem, not a copy problem. Decide before go-live:
-either add the analytics/banner it describes, or cut that section down to the truth.
+**#4 — Analytics: decide, then wire it to the consent bar.** The cookie bar exists and
+the three privacy policies now describe the truth (no advertising cookies, no analytics,
+only the consent answer stored in the browser). What is left is a decision: if you want
+visit statistics, load them from `window.olgaConsent.onAccept()` **and nowhere else**,
+then update the cookie section accordingly. If you do not, everything is already
+consistent and there is nothing to do.
 
 **Known gaps, pre-existing:**
 - The 3 **home** pages have a visible 4-item accordion with **no FAQPage schema**. Note
@@ -427,9 +429,9 @@ either add the analytics/banner it describes, or cut that section down to the tr
   place for the horoscope-shaped queries Olga does not want on her service pages).
 - The **FR home JSON-LD strings are still in English** (`WebSite` description, `Person`
   description, `serviceType`). RU is fully localised, EN is correct by definition.
-- Meta descriptions over 158 chars (Google truncates) on 6 pages: `fr/articles` 197,
-  `fr/contact` 194, `fr/consultations` 192, `fr/faq` 179, `ru/stati` 174, `fr` 166.
-  Re-measure rather than trusting this list, it drifts:
+- Meta descriptions over 158 chars (Google truncates) on 3 pages: `fr/articles` 197,
+  `fr/contact` 194, `ru/stati` 174. Re-measure rather than trusting this list, it drifts
+  every time copy is touched:
 
 ```bash
 python3 - <<'PY'
@@ -443,6 +445,13 @@ PY
 ```
 - The `.env` still has to be created on the server before the form can send anything
   (see the contact form section).
+
+**Resolved 2026-09-18:** the contact form actually sends (our own `send.php`, no third
+party), `.cpanel.yml` repaired after it had silently drifted to a state that would have
+deployed a site with no `/fr/` and no `/ru/`, the cookie bar built, the consent checkbox
+given a real link to the policy, the booking buttons landing on the form itself, the
+English dev note pulled off the three contact pages, and her banner hero plus her two
+missing photos put on all three homes.
 
 **Resolved 2026-09-17:** 8 of 10 prices live with `offers`; the FAQ pages in all 3
 languages rebuilt from her old site, with questions 3 and 4 back as lists the way she
