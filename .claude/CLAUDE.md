@@ -272,8 +272,25 @@ template in a single pass, which is why their structure is identical line for li
 pattern for the next pair: build both languages from one script rather than hand-copying,
 then let the copy differ.
 
+## Cookie consent bar (2026-09-18)
+Built in `js/main.js`, **not** duplicated into the 51 pages, with the copy in the three
+languages and the styling in `css/style.css` §23. It stores the answer in `localStorage`
+for 90 days, the period the privacy policy announces, and exposes
+`window.olgaConsent.granted()` / `.onAccept(fn)`.
+
+⚠️ **Right now the bar gates nothing**, because the site sets no cookies and loads no
+analytics. It is informational, and the cookie section of the three privacy policies now
+says exactly that. If analytics are ever added, load them from `olgaConsent.onAccept()`
+**and nowhere else**, otherwise "decline" becomes a lie.
+
+The privacy-policy link inside the bar is **read from the footer's own link**, not
+computed from `location.pathname`: the GitHub Pages preview serves the site from a
+`/repo/` subfolder, so any path arithmetic breaks there. Keep it that way.
+
 ## The booking CTA (2026-09-17)
-Every button that leads to the contact page says **«Оставить заявку» / "Leave a request" /
+Every button points at `…/contact/#request` (or `…/kontakty/#request`), the anchor on the
+form block itself, so the button lands on the form rather than the top of the page. Each
+says **«Оставить заявку» / "Leave a request" /
 « Laisser une demande »**, 73 per language. Her instruction, and it is not cosmetic: you
 do not book a slot, you file a request, and she runs the consultation only after the
 questionnaire comes back. The contact pages' H1 and title match. Two CTAs were left
@@ -428,7 +445,7 @@ Also check internal links resolve and no `?v=` stamp is stale.
 `css/style.css` or `js/main.js`, **bump the version query string** `?v=AAAAMMJJx`
 (date + letter, e.g. `?v=20260618a` → `20260618b`) on EVERY `<link>`/`<script>`
 that references them, across **all** pages — otherwise returning visitors get
-stale assets for up to a month. Current version stamp: **v=20260917b**.
+stale assets for up to a month. Current version stamp: **v=20260918a**.
 
 ## Theming gotcha (important)
 Do NOT put `class="bg-dark"` on `<body>`. The `.bg-dark h2/h3/p/li` rules recolor

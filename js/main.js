@@ -9,6 +9,76 @@
   document.documentElement.classList.remove("no-js");
 
   document.addEventListener("DOMContentLoaded", function () {
+    /* --- Cookie consent banner ------------------------------------------
+       Built here rather than duplicated into 51 static pages. The wording is
+       taken from the previous WordPress site, in the visitor's language.
+
+       IMPORTANT: this site currently sets NO cookies and loads NO analytics.
+       The banner records the choice and nothing else. When analytics are
+       added, load them from window.olgaConsent.onAccept() and nowhere else,
+       so that refusing actually means something. Until then the banner is
+       informational, which is why "accept" is not preselected anywhere. */
+    var CONSENT_KEY = "olga-consent";
+    var CONSENT_DAYS = 90; // durée annoncée dans la politique de confidentialité
+
+    var T = {
+      ru: { text: "Мы используем файлы cookie, необходимые для работы сайта, и анонимную статистику посещений. Вы можете принять или отклонить их. Отказ не влияет на работу сайта.",
+            accept: "Принимать", decline: "Отклонить", more: "Политика конфиденциальности",
+            href: "politika-konfidentsialnosti/", label: "Управление согласием" },
+      en: { text: "We use cookies that are necessary for the site to work, plus anonymous visit statistics. You can accept or decline them. Declining does not affect how the site works.",
+            accept: "Accept", decline: "Decline", more: "Privacy policy",
+            href: "privacy-policy/", label: "Manage consent" },
+      fr: { text: "Nous utilisons des cookies nécessaires au fonctionnement du site, ainsi que des statistiques de visite anonymes. Vous pouvez les accepter ou les refuser. Un refus n'affecte en rien le site.",
+            accept: "Accepter", decline: "Refuser", more: "Politique de confidentialité",
+            href: "politique-de-confidentialite/", label: "Gestion du consentement" }
+    };
+
+    var stored = null;
+    try { stored = JSON.parse(localStorage.getItem(CONSENT_KEY)); } catch (e) { stored = null; }
+    var expired = !stored || !stored.at ||
+      (Date.now() - stored.at) > CONSENT_DAYS * 864e5;
+
+    window.olgaConsent = {
+      granted: function () { return !!stored && stored.value === "accept" && !expired; },
+      onAccept: function (fn) { if (this.granted()) fn(); }
+    };
+
+    if (expired) {
+      var lang = document.documentElement.lang;
+      var t = T[lang] || T.en;
+
+      // On réutilise le lien de la politique déjà présent dans le pied de page :
+      // calculer la profondeur depuis location.pathname casserait sur GitHub
+      // Pages, qui sert le site depuis un sous-dossier.
+      var ppLink = document.querySelector('.footer__legal a[href*="' + t.href + '"]');
+      var ppHref = ppLink ? ppLink.getAttribute("href") : t.href;
+
+      var bar = document.createElement("div");
+      bar.className = "cookie-bar";
+      bar.setAttribute("role", "dialog");
+      bar.setAttribute("aria-label", t.label);
+      bar.innerHTML =
+        '<p class="cookie-bar__text">' + t.text +
+        ' <a href="' + ppHref + '">' + t.more + '</a>.</p>' +
+        '<div class="cookie-bar__actions">' +
+          '<button class="btn btn--primary" type="button" data-consent="accept">' + t.accept + '</button>' +
+          '<button class="btn btn--ghost" type="button" data-consent="decline">' + t.decline + '</button>' +
+        '</div>';
+
+      var close = function (value) {
+        try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ value: value, at: Date.now() })); } catch (e) {}
+        bar.classList.remove("is-open");
+        window.setTimeout(function () { bar.remove(); }, 300);
+      };
+      bar.addEventListener("click", function (ev) {
+        var b = ev.target.closest("[data-consent]");
+        if (b) close(b.getAttribute("data-consent"));
+      });
+
+      document.body.appendChild(bar);
+      window.requestAnimationFrame(function () { bar.classList.add("is-open"); });
+    }
+
     /* --- Copyright year ------------------------------------------------- */
     var yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
