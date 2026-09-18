@@ -136,3 +136,14 @@ ErrorDocument 404 /404.html
 <Files .htaccess>
     Require all denied
 </Files>
+# .env.example est un modèle sans secret, mais inutile de le servir
+<Files ".env.example">
+    Require all denied
+</Files>
+
+# --- Formulaire : protéger les coulisses ------------------------------------
+# logs/ contient le journal des rejets anti-spam (IP, extraits de messages).
+# vendor/ contient PHPMailer : aucune de ses classes ne doit être appelée
+# directement par une URL, seul send.php les inclut.
+RedirectMatch 404 ^/logs(/|$)
+RedirectMatch 404 ^/vendor(/|$)

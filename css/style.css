@@ -999,3 +999,15 @@ body.nav-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .cookie-bar { transition: none; }
 }
+
+/* ---------------------------------------------------------------------------
+   24. Form feedback (contact form, filled by js/main.js)
+   --------------------------------------------------------------------------- */
+.form__feedback {
+  margin-top: 1rem; padding: .85rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-size: .92rem; line-height: 1.5;
+  border: 1px solid transparent;
+}
+.form__feedback.is-success { background: #eef6ee; border-color: #cbe3cb; color: #24632c; }
+.form__feedback.is-error   { background: #fdeeee; border-color: #f2cccc; color: #9b2222; }

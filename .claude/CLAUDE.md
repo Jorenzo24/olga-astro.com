@@ -14,6 +14,8 @@ online astrology **consultations** (not mass-market horoscopes). Trilingual
    The 301s from the old WordPress URLs are **already written** in `.htaccess`; they do
    nothing on GitHub Pages and take effect the moment the domain switches over.
 3. Confirm canonical URLs all point to `https://olga-astro.com/...` (they do).
+4. **Create `.env` on the server** from `.env.example` and fill the SMTP credentials,
+   otherwise the contact form cannot send. Git never deploys it, by design.
 
 ## ⚠️ The OLD site is still live on the production domain
 `https://olga-astro.com/` currently serves Olga's **old WordPress**: Yoast sitemap, 17
@@ -231,7 +233,7 @@ the RU home uses the **full-bleed banner hero** (`.hero--banner`, css §20).
 **Complete** (full EN + FR + RU): **all 10 landings** plus home, about and contact. Each
 landing has its own thematic hero (`<key>-hero.*`) and cosmos band (`<key>-cosmos.*`) in
 `assets/img/` (Unsplash/Pexels free licence, except `love-*` which is cropped from a
-source Joseph supplied). No STUBS remain except the Formspree placeholder on contact.
+source Joseph supplied). No STUBS remain anywhere.
 
 ## ⚠️ Page anatomy since the client rewrite (2026-08-10)
 
@@ -271,6 +273,36 @@ reserved for the home page, and a hero photo must not be reused across two landi
 template in a single pass, which is why their structure is identical line for line. Good
 pattern for the next pair: build both languages from one script rather than hand-copying,
 then let the copy differ.
+
+## Contact form: our own `send.php` (2026-09-18)
+The form used to point at `https://formspree.io/f/your-form-id`, a placeholder. It had
+**never worked**: every submission failed and was lost, and a grey English dev note
+saying so was visible on the three contact pages, Russian and French included.
+
+It now follows the same pattern as the studio's other sites (see
+`village-iraty-biarritz.fr`): `send.php` + `vendor/phpmailer/` + a gitignored `.env`.
+No third party, which matters here because the privacy policy states in three languages
+that data is not passed to anyone; using Formspree would have made that sentence false
+and required naming a processor.
+
+- Trilingual: the form posts a hidden `lang`, and `send.php` answers in that language.
+- Anti-spam, in order: honeypot (`website`, off screen), 30s rate limit per IP, optional
+  Cloudflare Turnstile, content filter. Rejections are logged to `logs/spam.log`, which
+  `.htaccess` 404s along with `vendor/`.
+- Turnstile is **optional**: with no secret in `.env` the check is skipped and the form
+  keeps working, and the fact is written to the log so it is not silent.
+- `js/main.js` submits by fetch and shows a localised message; without JS the form still
+  posts to `send.php`, which is ugly (raw JSON) but not lost.
+
+⚠️ **Before it can send anything**: copy `.env.example` to `.env`, fill the SMTP
+credentials, and drop it in `$DEPLOYPATH` by hand. Git never deploys it. Until then
+`send.php` returns a clear "not configured yet" message rather than failing silently.
+
+⚠️ **`.cpanel.yml` was badly out of date** and has been rewritten. It listed folders one
+by one and had drifted: it would have deployed a site **with no `/fr/` and no `/ru/`**,
+missing `faq/`, `privacy-policy/`, `love-astrology-reading/` and the four renamed EN
+folders, while copying five folders that no longer exist. It now copies `./*` in one go,
+so it cannot drift again. Only `.htaccess` is copied explicitly (a dotfile, `./*` skips it).
 
 ## Cookie consent bar (2026-09-18)
 Built in `js/main.js`, **not** duplicated into the 51 pages, with the copy in the three
@@ -353,8 +385,8 @@ the document. Her flow, now described identically on the home page and in the FA
 three languages: you pick a consultation, you click **Leave a request**, a manager sends
 you the questionnaire and agrees the date and format, you pay, the consultation happens.
 What is still missing is the questionnaire itself, and whether it is our own contact form
-or a document she sends afterwards. The contact form is still the Formspree placeholder,
-so nothing actually reaches anyone yet.
+or a document she sends afterwards. The form itself now works (see below), it just does
+not yet carry a questionnaire.
 
 **#4 — The three home pages no longer share a hero.** Olga asked for the old site's
 full-bleed banner and it was built for RU (`.hero--banner`, css §20). EN and FR still run
@@ -392,8 +424,8 @@ for p in sorted(glob.glob('**/index.html',recursive=True)):
         print(p.replace('/index.html',''), len(html.unescape(m.group(1))))
 PY
 ```
-- Contact form still on the Formspree placeholder (see Git section), and its 3 pages are
-  the last stubs on the site.
+- The `.env` still has to be created on the server before the form can send anything
+  (see the contact form section).
 
 **Resolved 2026-09-17:** 8 of 10 prices live with `offers`; the FAQ pages in all 3
 languages rebuilt from her old site, with questions 3 and 4 back as lists the way she
@@ -445,7 +477,7 @@ Also check internal links resolve and no `?v=` stamp is stale.
 `css/style.css` or `js/main.js`, **bump the version query string** `?v=AAAAMMJJx`
 (date + letter, e.g. `?v=20260618a` → `20260618b`) on EVERY `<link>`/`<script>`
 that references them, across **all** pages — otherwise returning visitors get
-stale assets for up to a month. Current version stamp: **v=20260918a**.
+stale assets for up to a month. Current version stamp: **v=20260918b**.
 
 ## Theming gotcha (important)
 Do NOT put `class="bg-dark"` on `<body>`. The `.bg-dark h2/h3/p/li` rules recolor
@@ -458,5 +490,5 @@ dark (home hero) and light (interior) page tops.
 ## Git
 - `main` = production, deployed on push. Per the owner's workflow, **commit and push
   straight to `main`** (no feature-branch ceremony, no review gate).
-- Contact form is static: uses a Formspree placeholder + `mailto:` fallback —
-  swap in the real Formspree form ID (or backend) before launch.
+- The contact form posts to `send.php` on our own server, not to a third party.
+  `.env` is gitignored and never deployed by Git: deposit it by hand, once.

@@ -16,3 +16,6 @@ node_modules/
 # Backups
 *.bak
 *.old
+
+# Logs du formulaire (spam, erreurs) — jamais versionnés
+logs/

@@ -9,6 +9,62 @@
   document.documentElement.classList.remove("no-js");
 
   document.addEventListener("DOMContentLoaded", function () {
+    /* --- Contact form: AJAX submit to send.php -------------------------
+       Same pattern as the studio's other sites. Without JS the form still
+       posts normally to send.php, which returns JSON; that is ugly but not
+       broken, and the contact page also lists the email and messengers. */
+    var reqForm = document.getElementById("request-form");
+    if (reqForm) {
+      var fb = document.getElementById("form-feedback");
+      var submitBtn = document.getElementById("form-submit");
+      var FB = {
+        ru: { sending: "Отправляем\u2026", offline: "Не удалось отправить. Проверьте соединение или напишите на info@olga-astro.com." },
+        en: { sending: "Sending\u2026",     offline: "The message could not be sent. Check your connection, or write to info@olga-astro.com." },
+        fr: { sending: "Envoi en cours\u2026", offline: "Envoi impossible. Vérifiez votre connexion, ou écrivez à info@olga-astro.com." }
+      };
+      var fbT = FB[document.documentElement.lang] || FB.en;
+
+      var say = function (text, ok) {
+        fb.textContent = text;
+        fb.className = "form__feedback " + (ok ? "is-success" : "is-error");
+        fb.hidden = false;
+      };
+
+      reqForm.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        if (!reqForm.checkValidity()) { reqForm.reportValidity(); return; }
+
+        var original = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = fbT.sending;
+        fb.hidden = true;
+
+        fetch(reqForm.action, {
+          method: "POST",
+          body: new FormData(reqForm),
+          headers: { Accept: "application/json" }
+        })
+          .then(function (res) {
+            return res.json().catch(function () { return {}; }).then(function (json) {
+              return { ok: res.ok, json: json };
+            });
+          })
+          .then(function (r) {
+            if (r.ok && r.json.ok) {
+              say(r.json.message || "OK", true);
+              reqForm.reset();
+            } else {
+              say(r.json.error || fbT.offline, false);
+            }
+          })
+          .catch(function () { say(fbT.offline, false); })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = original;
+          });
+      });
+    }
+
     /* --- Cookie consent banner ------------------------------------------
        Built here rather than duplicated into 51 static pages. The wording is
        taken from the previous WordPress site, in the visitor's language.
