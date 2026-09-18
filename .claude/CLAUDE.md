@@ -304,6 +304,28 @@ missing `faq/`, `privacy-policy/`, `love-astrology-reading/` and the four rename
 folders, while copying five folders that no longer exist. It now copies `./*` in one go,
 so it cannot drift again. Only `.htaccess` is copied explicitly (a dotfile, `./*` skips it).
 
+## Her own photos, and where they live (2026-09-18)
+Her current WordPress home page shows five images. Four are of her, and we had only two
+of them; the other two had been added in October 2025, after our first asset pass. All
+four are now in the project and used the way she uses them:
+
+| Her file | Ours | Where |
+|---|---|---|
+| `bandeau-Olga-astro.png` | `olga-banner.*` | the full-bleed hero, **now on all 3 homes** |
+| `olga-astro-18.jpeg` | `olga-portrait.*` | JSON-LD image, hero of the old split layout |
+| `olga-astro-11` (a hand drawing a chart) | `olga-chart-drawing.*` | backdrop of the "real questions" section, exactly where she puts it |
+| `olga-astro-4` | `olga-standing.*` | about-page gallery |
+| `olga-astro-3` (seated, laptop) | `olga-sofa.*` | about-page gallery, replacing the banner now used as the hero |
+
+The banner hero was RU-only until now, which is why the three homes did not look like
+hers. They do now: same photo, same H1 shape (her name and title, the money keyword
+having moved to `<title>` and the SEO H2).
+
+⚠️ When putting a photo behind a `bg-dark` section, the `.container` **must** get
+`position:relative;z-index:1`, or the gradient scrim renders on top of the copy. That
+mistake dropped the heading contrast to 1.66:1 here before it was caught; it is 16.4:1
+now. Measure it, do not eyeball it.
+
 ## Cookie consent bar (2026-09-18)
 Built in `js/main.js`, **not** duplicated into the 51 pages, with the copy in the three
 languages and the styling in `css/style.css` §23. It stores the answer in `localStorage`
@@ -388,12 +410,7 @@ What is still missing is the questionnaire itself, and whether it is our own con
 or a document she sends afterwards. The form itself now works (see below), it just does
 not yet carry a questionnaire.
 
-**#4 — The three home pages no longer share a hero.** Olga asked for the old site's
-full-bleed banner and it was built for RU (`.hero--banner`, css §20). EN and FR still run
-the older split hero with `olga-portrait`. Either port the banner to them or decide the
-homes are allowed to differ; right now it is an accident of scope, not a decision.
-
-**#5 — The cookie section of the privacy policy describes the OLD stack.** The text was
+**#4 — The cookie section of the privacy policy describes the OLD stack.** The text was
 ported faithfully from her WordPress, and it still talks about a cookie banner, a "Manage
 Cookies" button, `wp_session`, `seopress-user-consent` and Google Analytics. **The new
 site is static and sets no cookies at all.** Publishing a cookie policy for cookies that

@@ -121,38 +121,29 @@
   <main id="main">
 
     <!-- ============================ HERO ============================ -->
-    <section class="hero bg-dark">
-      <div class="starfield" aria-hidden="true"></div>
+    <!-- HERO : bannière pleine largeur reprise de l'ancien site, à la demande d'Olga -->
+    <section class="hero hero--banner bg-dark">
+      <div class="hero__bg" aria-hidden="true">
+        <picture>
+          <source srcset="assets/img/olga-banner.webp" type="image/webp">
+          <img src="assets/img/olga-banner.jpg" width="1920" height="700"
+               alt="" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
       <div class="container">
-        <div class="hero__grid">
-          <div class="hero__content reveal">
-            <span class="eyebrow">Online Astrology Consultation</span>
-            <h1>Personal Astrology <span class="accent">Readings</span> &amp; Consultations</h1>
-            <p class="hero__lead">Work one-to-one with Olga, a professional astrologer, for a clear,
-              personal astrology reading online: your birth chart, the year ahead, relationships,
-              career or relocation. Practical guidance grounded in your unique chart, never a generic horoscope.</p>
-            <div class="hero__actions">
-              <a class="btn btn--primary btn--lg" href="contact/#request">Leave a request</a>
-              <a class="btn btn--ghost btn--lg" href="consultation/">Explore readings</a>
-            </div>
-            <div class="hero__meta">
-              <div><b>10</b><span>Types of reading</span></div>
-              <div><b>1:1</b><span>Personal sessions</span></div>
-              <div><b>Online</b><span>Worldwide</span></div>
-            </div>
+        <div class="hero__content reveal">
+          <span class="eyebrow">Online astrology consultations</span>
+          <h1>Olga Matyushkina, professional astrologer</h1>
+          <p class="hero__lead">Welcome to my site. Personal consultations read from your own birth chart, one to one and online, with practical guidance meant for you alone and never a horoscope written for everybody.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="contact/#request">Leave a request</a>
+            <a class="btn btn--ghost btn--lg" href="consultation/">See the consultations</a>
           </div>
-
-          <div class="hero__figure reveal" data-delay="1">
-            <picture>
-              <source srcset="assets/img/olga-portrait.webp" type="image/webp">
-              <img src="assets/img/olga-portrait.jpeg" width="999" height="999"
-                   alt="Olga, professional astrologer, smiling in warm golden light"
-                   fetchpriority="high">
-            </picture>
-            <div class="hero__badge">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2l2.4 6.9H22l-6 4.4 2.3 7L12 16l-6.3 4.3 2.3-7-6-4.4h7.6z"/></svg>
-              <span><b>Professional astrologer</b>Personal, confidential readings</span>
-            </div>
+          <div class="hero__meta">
+            <div><b>10</b><span>Consultations</span></div>
+            <div><b>9+</b><span>Years in practice</span></div>
+            <div><b>Online</b><span>Worldwide</span></div>
           </div>
         </div>
       </div>
@@ -317,9 +308,14 @@
     </section>
 
     <!-- ================= WHAT ASTROLOGY CAN HELP WITH ================= -->
-    <section class="section bg-dark" aria-labelledby="help-title">
-      <div class="starfield" aria-hidden="true"></div>
-      <div class="container">
+    <section class="section bg-dark" style="position:relative;overflow:hidden" aria-labelledby="help-title">
+      <picture>
+        <source srcset="assets/img/olga-chart-drawing.webp" type="image/webp">
+        <img src="assets/img/olga-chart-drawing.jpg" width="1000" height="1000" loading="lazy" alt=""
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.42">
+      </picture>
+      <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,17,46,.76),rgba(10,17,46,.88))"></div>
+      <div class="container" style="position:relative;z-index:1">
         <div class="section-head reveal">
           <span class="eyebrow is-centered">What astrology can help you with</span>
           <h2 id="help-title">Real questions a personal reading can answer</h2>
